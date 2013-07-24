@@ -1,0 +1,36 @@
+#msg_content {
+	min-height: 100px;
+	min-width: 80%;
+}
+
+#msg_content_container {
+	text-align: center;
+	margin-bottom: 2%;
+}
+
+.message_content {
+	vertical-align: text-top;
+	margin-top: 0;
+	margin-left: 0;
+}
+
+.avatar {
+	text-align: center;
+}
+
+hr {
+	border-color: #233952;
+}
+
+.msg_border {
+	border-style: solid;
+	border-color: #233952;
+}
+
+#message {
+	padding-left: 0;
+}
+
+.msg_user {
+	font-size: 15pt;
+}

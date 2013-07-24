@@ -1,0 +1,15 @@
+{% extends "lover_common.html" %}
+
+{% block navbar %}
+{% include "lover_navbar.html" %}
+{% endblock %}
+
+{% block concern %}
+{% include "user_common.html" %}
+{% endblock %}
+
+{% block middle %}
+	{% for comment in comments %}
+	<p alt="{{ comment.uid }}">{{ comment.name }}<img src="/static/pic/avatar/{{ comment.avatar }}_s.jpg"></img>{{ comment.content }}</p>
+	{% endfor %}
+{% endblock %}

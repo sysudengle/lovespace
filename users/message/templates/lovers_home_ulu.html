@@ -1,0 +1,27 @@
+{% extends "lover_common.html" %}
+
+{% block navbar %}
+{% include "lover_navbar.html" %}
+{% endblock %}
+
+{% block link %}
+<link type="text/css" href="/static/css/message.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block js %}
+<script src="/static/js/message2.js"></script>
+{% endblock js %}
+
+{% block other_lover_navbar %}
+{% include "other_lover_navbar.html" %}
+{% endblock %}
+
+{% block middle %}
+<p>my own love space!</p>
+<div id="message">
+	{% for single_message in message %}
+	{% include 'message_basic.html' %}
+	{% endfor %}
+</div>
+<div id="test"></div>
+{% endblock %}

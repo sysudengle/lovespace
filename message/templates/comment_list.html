@@ -1,0 +1,27 @@
+<div id="cmt{{ comment.cid }}" class="comment_content grey-unit function_area" alt="{{ comment.user_id }}">
+	<caption>评论列表</caption>
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr>
+				<th>用户</th>
+				<th>内容</th>
+				<th>时间</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for comment in comments %}
+		<tr>
+			<td>
+				<img src='/static/pic/avatar/{{ comment.avatar }}_s.jpg'></img>
+				<p>
+					<p>{{ comment.name }}</p>
+					<p>{{ comment.sex }}</p>
+				</p>
+			</td>
+			<td>{{ comment.content }}</td>
+			<td>{{ comment.time }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	</table>
+</div>

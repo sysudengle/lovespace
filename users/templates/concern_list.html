@@ -1,0 +1,33 @@
+<div id="fans_list">
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr>
+				<th>情侣空间</th>
+				<th>开始相爱</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for concern in concern_list %}
+		<tr>
+			<td>
+				<a href="/lovers/home/{{ concern.lid }}/">
+					<img class="resize_img" src="/static/pic/loveravatar/{{ concern.avatar }}_s.jpg"></img>
+				</a>
+				<p>
+					<p>{{ concern.name }}</p>
+				</p>
+			</td>
+			<td>{{ concern.time }}</td>
+			<td>
+				{% if concern.strange %}
+				<button class="concern btn btn-primary" alt="{{ concern.lid }}" >关注</button>
+				{% else %}
+				<button class="cancel_concern btn btn-danger" alt="{{ concern.lid }}" >取消关注</button>
+				{% endif %}
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	</table>
+</div>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}{% endblock %}</title>
+		<script type="text/javascript" src="/static/js/jquery.js"></script>
+		<link type="text/css" href="/static/css/bootstrap.css" rel="stylesheet" />
+		<link type="text/css" href="/static/css/global.css" rel="stylesheet" />
+		{% block link %}{% endblock %}
+	</head>
+	<body>
+		<div id="navigator">
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container">
+						<ul class="nav">
+							<li><a class="brand">LoveSpace</a></li>
+							<li class="active"><a href="/lovers/home/{{ request.session.lid }}/">个人主页</a></li>
+							<li><a href="/lovers/magic/{{ request.session.lid }}/">双人密语</a></li>
+							<li><a href="/lovers/timeflow/{{ request.session.lid }}/">时间轴</a></li>
+							<li><a href="/lovers/album/{{ request.session.lid }}/page1/">相册</a></li>
+							<form action='/lovers/search/' method="post" class="navbar-search pull-left">
+								{% csrf_token %}
+								<input type="text" name="search" class="search-query" placeholder="搜索用户/情侣空间">
+								<button type="submit" class="btn btn-small btn-info">submit</button>
+							</form>
+							<li class="divider-vertical"></li>
+							<li class="dropdown">
+							    <a href="#" class="dropdown-toggle" data-toggle="dropdown">帐户<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="/logout/">帮助</a></li>
+									<li><a href="/logout/">退出</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>	
+		</div>
+
+		<div id="body">
+			<div class="container-fluid">
+					<div class="span3">
+						{% if lovers %}
+						<p id="lover1" alt="{{ lovers.lover1_id }}">{{ lovers.lover1_name }}</p>
+						<p><img class="avatar" src="/static/pic/avatar/{{ lovers.lover1_avatar}}_m.jpg"></img></p>
+						<div>
+							我们的合照
+							<p><img class="avatar" src="/static/pic/loverAvatar/{{ lovers.lovers_avatar}}_m.jpg"></img></p>
+						</div>
+						{% endif %}
+					</div>
+					<div class="span9">
+						<p id="user" alt="{{ request.session.uid }}">{{ request.session.user }}</p>
+						<p id="lovespace" alt="{{ lovers.lid }}">{{ lovers.lovespace }}</p>
+						<div id="input_text_block">{% block middle %}{% endblock %}</div>
+						<div id="search">{% block search %}{% endblock %}</div>
+					</div>
+					<div class="span3">
+						<!--Sidebar content-->
+						{% if lovers %}
+						<p id="lover2" alt="{{ lovers.lover2_id }}">{{ lovers.lover2_name }}</p>
+						<p><img class="avatar" src="/static/pic/avatar/{{ lovers.lover2_avatar }}_m.jpg"></img></p>
+						{% endif %}
+					</div>
+  			</div>
+  		</div>
+		<div id="footer"></div>
+		<script src="/static/js/bootstrap.js"></script>
+		<script src="/static/js/bootstrap-dropdown.js"></script>
+		<script src="/static/js/underscore.js"></script>
+		<script src="/static/js/backbone.js"></script>
+		{% block js %}{% endblock %}
+	</body>
+</html>

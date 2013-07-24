@@ -1,0 +1,111 @@
+{% extends "lover_common.html" %}
+
+{% block navbar %}
+{% include "lover_navbar.html" %}
+{% endblock %}
+
+{% block concern %}
+{% include "user_common.html" %}
+{% endblock %}
+
+{% block title %} {{ albumName }} {% endblock %}
+
+{% block link %}
+<script src="/static/uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
+<link type="text/css" href="/static/uploadify/uploadify.css" rel="stylesheet" />
+<script src="/static/js/uploadPhoto.js" type="text/javascript"></script>
+<script src="/static/js/csrf.js" type="text/javascript"></script>
+<script src="/static/js/showPhoto.js" type="text/javascript"></script>
+<link type="text/css" href="/static/css/showPhoto.css" rel="stylesheet" />
+{% endblock %}
+
+{% block middle %}
+<div id = "content" class="span8">
+    <div class="page-header">
+        <h1> {{ album.name }} <small>{{ album.time }}</small> </h1>
+    </div>
+
+    <ul id="upload" class="thumbnails">
+        {% for photo in photos %}
+        <li class="span2">
+        <div>
+            <a class="photo {{ photo.id }}" href="#modalPhoto" role="button" data-toggle="modal">
+                <img class="img-rounded" src='/static/pic/{{ lid }}/{{ aid }}/c{{ photo.name }}'/>
+            </a>
+        </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <div id="modalPhoto" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <div class="carousel slide" id="carousel-24055">
+                <div class="carousel-inner">
+                    {% for photo in photos %}
+                    <div class="item {{ photo.id }} span9">
+                        <div class="span6">
+                            <img class="center" src="/static/pic/{{ lid }}/{{ aid }}/s{{ photo.name }}" />
+                            {# <div class="carousel-caption"> #}
+                                {# </div> #}
+                        </div>
+                        <div class="span3">
+                            <ul>
+                                <li>啦啦啦巴拉巴拉巴拉巴拉巴拉巴拉巴拉大开杀戒打开萨</li>
+                            <ul>
+                            <form action="" class="form-horizontal" method="post">
+                                <div class="control-group">
+                                    <textarea rows="3" placeholder="评论图片" name="comment"></textarea>
+                                    <input id="notdisplay" type="text" name="photoid" value="{{ photo.id }}">
+                                </div>
+                                <div class="control-group">
+                                    <input type="submit" class="btn btn-info" value="评论"/>
+                                </div>
+                            </form>
+                            <a href="/static/pic/{{ lid }}/{{ aid }}/o{{ photo.name }}" class="btn btn-success">原图</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div> 
+                <a data-slide="prev" href="#carousel-24055" class="left carousel-control">‹</a> 
+                <a data-slide="next" href="#carousel-24055" class="right carousel-control">›</a>
+            </div>
+
+        </div>
+        {# <div class="modal-body"> #}
+            {# </div> #}
+        <div class="modal-footer">
+            <a href="/lovers/album/{{ lid }}/{{ aid }}/page{{ pagepre }}/" class="btn">上一页</a>
+            <a href="/lovers/album/{{ lid }}/{{ aid }}/page{{ pagepost }}/" class="btn">下一页</a>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+        </div>
+    </div>
+
+    {% if havephoto %}
+    <div class="pagination pagination-right">
+        <ul>
+            {% if notfirst %}
+            <li> <a href="/lovers/album/{{ lid }}/{{ aid }}/page{{ pagepre }}/">上一页</a> </li>
+            {% endif %}
+            {% for index in pageindex %}
+            <li> <a href="/lovers/album/{{ lid }}/{{ aid }}/page{{ index }}/">{{ index }}</a> </li>
+            {% endfor %}
+            {% if notlast %}
+            <li> <a href="/lovers/album/{{ lid }}/{{ aid }}/page{{ pagepost }}/">下一页</a> </li>
+            {% endif %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <form enctype="multipart/form-data" action="" method="post">
+        {% csrf_token %}
+        <input id="photoName" name="Filedata" type="file" multiple="true"/>
+        <div class="alert">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong> 提示: </strong> 
+            只限jpg, gif, png格式的图片文件，单文件大小不超过20M，图片短边至少120px，图片在后台被转换为大小长边不超过2000px的图片后存放。可使用shift、ctrl键一次上传多张图片。
+        </div>
+    </form>
+
+    <a class = "btn btn-info" href="/lovers/album/{{ lid }}/page1/">返回相册</a>
+</div>
+{% endblock %}

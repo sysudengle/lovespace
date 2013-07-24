@@ -1,0 +1,11 @@
+<div>
+	<div>
+		<input id="ct{{ request.POST.mid }}" type="text"></input>
+		<button id="sc{{ request.POST.mid }}" class="comment">comment</button>
+	</div>
+	<div id="cc{{ request.POST.mid }}">
+		{% for comment in comments %}
+		{% include "comment_basic.html" %}
+		{% endfor %}
+	</div>
+</div>

@@ -1,0 +1,43 @@
+{% extends "lover_common.html" %}
+
+{% block navbar %}
+{% include "lover_navbar.html" %}
+{% endblock %}
+
+{% block concern %}
+{% include "user_common.html" %}
+{% endblock %}
+
+{% block link %}
+<link type="text/css" href="/static/css/message.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="/static/js/message2.js"></script>
+{% endblock js %}
+
+{% block middle %}
+<div id="send_message_block" class="grey-unit function_area">
+	<form class="form-vertical" action="#" method="post">
+		{% csrf_token %}
+		<label class="tips">发布状态，晒晒你们的甜蜜生活～</label>
+		<div id="msg_content_container" class="tools">
+			<textarea id="msg_content" class="input-big"></textarea>
+			<div id="face1" class="faceBtn">添加表情</div>
+		</div>
+		<div class="row-fluid">
+			<div id="db" class="demo-box offset6 span1">
+				<input id="file_upload" class="img_upload" type="file" name="Filedata"></input>
+			</div>
+			<div class="offset2 span2"><button id="submit_message" class="btn btn-info" type="button">发送</button></div>
+			<div class="span1"></div>
+		</div>
+	</form>
+</div>
+<div id="message" class="grey-unit">
+	{% for single_message in message %}
+	{% include 'message_basic.html' %}
+	{% endfor %}
+</div>
+<div id="test"></div>
+{% endblock %}

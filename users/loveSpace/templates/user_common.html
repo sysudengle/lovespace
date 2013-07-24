@@ -1,0 +1,16 @@
+{% if concern %}
+<div id="concern">
+我的关注
+	<div class="row">
+	{% for c in concern %}
+		<div class="span1">
+			<a href="/lovers/home/{{ c.lid }}/">
+				<img class="ss_img" src="/static/pic/loverAvatar/{{ c.avatar }}_s.jpg"></img>
+				<p class="text-success">{{ c.lover_name }}</p>			
+			</a>
+		</div>
+	{% endfor %}
+	</div>
+	<a href="/lovers/fans/{{ lovers.lid }}/">更多关注</a>
+</div>
+{% endif %}

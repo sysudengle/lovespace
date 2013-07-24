@@ -1,0 +1,41 @@
+{% extends "lover_common.html" %}
+
+{% block navbar %}
+{% include "lover_navbar.html" %}
+{% endblock %}
+
+{% block concern %}
+{% include "user_common.html" %}
+{% endblock %}
+
+{% block link %}
+<link type="text/css" href="/static/css/message.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block js %}
+<script src="/static/js/message2.js"></script>
+{% endblock js %}
+
+{% block middle %}
+<p>my own love space!</p>
+<div id="shit" alt="haha"></div>
+<div id="send_message_block">
+	<form class="form-vertical" action="#" method="post">
+		{% csrf_token %}
+		<label>message</label>
+		<div id="msg_content_container"><input id="msg_content" class="input-big" type="textarea"></input></div>
+		<div class="row">
+			<div id="db" class="demo-box offset5 span2">
+				<input id="file_upload" type="file" name="Filedata"></input>
+			</div>
+			<div class="span2"><button id="submit_message" class="btn btn-info" type="button">send</button></div>
+		</div>
+	</form>
+</div>
+<div id="message">
+	{% for single_message in message %}
+	{% include 'message_basic.html' %}
+	{% endfor %}
+</div>
+<div id="test"></div>
+{% endblock %}

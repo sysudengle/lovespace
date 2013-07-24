@@ -1,0 +1,109 @@
+{% extends "lovers_basic.html" %}
+
+{% block title %} Love Album {% endblock %}
+
+{% block middle %}
+{% if errors %}
+<p>创建相册错误，请重新输入</p>
+<ul> 
+    {% for error in errors %} 
+    <li> {{ error }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+<div id = "content">
+    <ul class="thumbnails">
+        {% for album in albums %}
+        <li class="span3">
+        <div class="thumbnail">
+            <a href="/lovers/album/{{ lid }}/{{ album.id }}/page1/">
+                <img src="/static/pic/{{ lid }}/{{ album.id }}/{{ album.cover }}"/>
+            </a>
+            <div class="caption">
+                <h3> {{ album.name }}<small> {{ album.num }}张 </small> </h3>
+                <p> {{ album.desc }} </p>
+                <p> <a class="btn btn-primary" href="/lovers/album/{{ lid }}/{{ album.id }}/page1/">浏览</a> </p>
+            </div>
+        </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    {# <a class = "btn btn-info" href="/lovers/album/{{ lid }}/add/">创建相册</a> #}
+    <a class = "btn btn-info" href="#modal-container-886387" role="button" data-toggle="modal">创建相册</a>
+
+    {% if havealbum %}
+    <div class="pagination pagination-right">
+        <ul>
+            {% if notfirst %}
+            <li> <a href="/lovers/album/{{ lid }}/page{{ pagepre }}/">上一页</a> </li>
+            {% endif %}
+            {% for index in pageindex %}
+            <li> <a href="/lovers/album/{{ lid }}/page{{ index }}/">{{ index }}</a> </li>
+            {% endfor %}
+            {% if notlast %}
+            <li> <a href="/lovers/album/{{ lid }}/page{{ pagepost }}/">下一页</a> </li>
+            {% endif %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <div id="modal-container-886387" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">
+                增加相册
+            </h3>
+        </div>
+        <div class="modal-body">       
+            <form action="" method="post" class="form-horizontal">
+                {% csrf_token %}
+                <div class="albumAdd">
+                    <div class="control-group">
+                        <label class="control-label" for="inputAlbumName">名称</label>
+                        <div class="controls">
+                            <input type="text" id="inputAlbumName" name="name" placeholder="相册名称">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputAlbumDesc">描述</label>
+                        <div class="controls">
+                            <textarea rows="3" id="inputAlbumDesc" name="desc" placeholder="相册描述" maxlength="100"></textarea>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputAlbumCont">权限</label>
+                        <div class="controls">
+                            <select class="select" name="control">
+                                <option selected value='99'>所有人</option>
+                                <option>我们的粉丝</option>
+                                <option>我们的共同关注</option>
+                                <option>使用密码访问</option>
+                                <option>仅我们自己访问</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputAlbumPass">密码</label>
+                        <div class="controls">
+                            <input type="text" id="inputAlbumPass" name="password" placeholder="密码">
+                            <p class="muted">支持大小写字母、数字，限20字符</p>
+                            <p class="text-error">密码不符合规范，请重新设置</p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="submit" class="btn btn-info" value="创建相册"/>
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button> 
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            {# <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>  #}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

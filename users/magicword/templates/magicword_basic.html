@@ -1,0 +1,20 @@
+<div id="magic{{ single_magicword.mid }}" class="magicword_info" alt="{{ single_magicword.user_id }}">
+	<button type="button" class="close">x</button>
+	<div class="avatar">
+	{% if single_magicword.avatar %}
+	<img src="/static/pic/avatar/{{ single_magicword.avatar }}"></img>
+	{% else %}
+	{% ifequal lovers.lover1_name single_magicword.user_name %}
+	<img src="/static/pic/avatar/{{ lovers.lover1_avatar }}_s.jpg"></img>
+	{% else %}
+	<img src="/static/pic/avatar/{{ lovers.lover2_avatar }}_s.jpg"></img>
+	{% endifequal %}
+	{% endif %}
+	</div>
+	<div class="magicword_content">
+		<p>{{ single_magicword.user_name}} says:</p>
+		<p>{{ single_magicword.content }}</p>
+		<p>{{ single_magicword.time }}</p>
+		<p>-----------------------------------</p>
+	</div>
+</div>

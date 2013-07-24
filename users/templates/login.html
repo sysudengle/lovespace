@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<title>register</title>
+		<link type="text/css" href="/static/css/bootstrap.css" rel="stylesheet" />
+		<script type="text/javascript" src="/static/js/jquery.js"></script>
+		<script src="/static/js/bootstrap.js"></script>
+	<script src="/static/js/bootstrap-dropdown.js"></script>
+	</head>
+	<body>
+		<div id="navigator">
+			<div class="navbar navbar-inverse">
+				<div class="navbar-inner">
+					<div class="container">
+						<ul class="nav">
+							<li><a class="brand">LoveSpace</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% ifequal error 'n' %}
+		<p>User name does exist!!~</p>
+		{% endifequal %}
+
+		{% ifequal error 'p' %}
+		<p>password error!~</p>
+		{% endifequal %}
+
+		<div class="container">
+			<form class="form-horizontal form-signin" action="/login_finish/" method="post">
+				{% csrf_token %}
+			  	<div class="control-group">
+			   		<label class="control-label" for="inputName">用户</label>
+			    	<div class="controls">
+						<input id="inputIcon" type="text" name="name" placeholder="User">
+			    	</div>
+			  	</div>
+			  	<div class="control-group">
+			    	<label class="control-label" for="inputPassword">密码</label>
+			    	<div class="controls">
+			      		<input type="password" id="inputPassword" placeholder="Password" name="password">
+			   		</div>
+			  	</div>
+			  	<div class="control-group">
+			    	<div class="controls">
+			      		<label class="checkbox">
+			        		<input type="checkbox"> 记住我
+							<a href="/register/">注册</a>
+			      		</label>
+			      		<button type="submit" class="btn btn-primary">登录</button>
+			    	</div>
+			  	</div>
+			</form>
+		</div>
+	</body>
+</html>

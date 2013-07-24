@@ -1,0 +1,12 @@
+<div id="cmt{{ comment.cid }}" class="comment_content row" alt="{{ comment.user_id }}">
+	<button type="button" class="close">x</button>
+	<div class="row-fluid">
+		<div class="span1"><img src="/static/pic/avatar/{{ comment.avatar }}_ss.jpg"></img></div>
+		<div class="span10">
+			<p>{{ comment.user_name }}:</p>
+			<p>{{ comment.content }}({{ comment.time }})
+			</p>
+		</div>
+		<div class="span1"></div>
+	</div>
+</div>

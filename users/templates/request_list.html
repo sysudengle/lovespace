@@ -1,0 +1,28 @@
+<div id="request_list" class="grey-unit">
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr>
+				<th>用户邀请</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for invition in invitions %}
+		<tr id="invite{{ invition.uid }}">
+			<td>
+				<a href="/lovers/home/{{ invition.lid }}/">
+					<img class="resize_img" src="/static/pic/avatar/{{ invition.avatar }}_s.jpg"></img>
+				</a>
+				<p>
+					<p><b>{{ invition.name }}</b>想邀请您成为伴侣</p>
+				</p>
+			</td>
+			<td>
+				<button id='/{{ request.session.uid }}/user/acceptlover/{{ invition.uid }}/' href="#myModal" class="accept btn btn-primary" data-toggle="modal">接受</button>
+				<button href="/{{ request.session.uid }}/user/refuselover/{{ invition.uid }}/" class="refuse btn btn-danger" data-fid="{{ request.session.uid }}" data-tid="{{ invition.uid }}">拒绝</button>
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	</table>
+</div>

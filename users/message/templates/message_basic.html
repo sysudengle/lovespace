@@ -1,0 +1,30 @@
+<div id="{{ single_message.mid }}" class="message_info row" alt="{{ single_message.user_id }}">
+	<button type="button" class="close">x</button>
+	<div class="avatar span2">
+	{% if single_message.avatar %}
+	<img src="/static/pic/avatar/{{ single_message.avatar }}"></img>
+	{% else %}
+	{% ifequal lovers.lover1_name single_message.user_name %}
+	<img src="/static/pic/avatar/{{ lovers.lover1_avatar }}_s.jpg"></img>
+	{% else %}
+	<img src="/static/pic/avatar/{{ lovers.lover2_avatar }}_s.jpg"></img>
+	{% endifequal %}
+	{% endif %}
+	</div>
+	<div class="message_content span7">
+		<p class="msg_user">{{ single_message.user_name}}</p>
+			<p>{{ single_message.content }}</p>
+			<p id="c{{ single_message.mid}}">
+			</p>
+		{% if single_message.image %}
+		<div id="img{{ single_message.mid }}" class="img_block" alt="mid">
+			<img class="img-rounded" src="/static/pic/{{ single_message.lid }}/msg/{{ single_message.mid }}m.jpg"></img>
+		</div>
+		{% endif %}
+		<p>{{ single_message.time }}</p>
+		<a href="javascript:void(0)">bless</a> 
+		<a id="gc{{ single_message.mid }}" class="get_comment" alt="active" href="javascript:void(0)">comment</a>
+		<div id="uc{{ single_message.mid }}"></div>
+	</div>
+</div>
+<hr></hr>

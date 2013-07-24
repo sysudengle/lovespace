@@ -1,0 +1,31 @@
+#magicword_input {
+	min-height: 100px;
+	min-width: 80%;
+}
+
+.magicword_content {
+	vertical-align: text-top;
+	margin-top: 0;
+	margin-left: 0;
+	text-align: left;
+}
+
+.magicword_main {
+	border-bottom-style: solid;
+	border-width: 1px;
+	color: #111;
+	margin-bottom: 10px;
+}
+
+.avatar {
+	display: inline-block;
+	margin-top: 20px;
+}
+
+.mgw_user {
+	font-size: 15pt;
+}
+
+.avatar {
+	margin-top: 0;
+}

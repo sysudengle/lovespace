@@ -1,0 +1,418 @@
+-- MySQL dump 10.13  Distrib 5.5.29, for debian-linux-gnu (i686)
+--
+-- Host: localhost    Database: loveSpace
+-- ------------------------------------------------------
+-- Server version	5.5.29-0ubuntu0.12.10.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `Album`
+--
+
+DROP TABLE IF EXISTS `Album`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Album` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `loversId` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `desc` varchar(100) NOT NULL,
+  `time` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Album`
+--
+
+LOCK TABLES `Album` WRITE;
+/*!40000 ALTER TABLE `Album` DISABLE KEYS */;
+INSERT INTO `Album` VALUES (1,1,'test','test~','2013-06-02 02:10:15'),(2,1,'test','test~','2013-06-02 02:19:53'),(3,1,'ll','1qwe','2013-06-02 02:23:03'),(4,1,'ll','1qwe','2013-06-02 02:23:58'),(5,12,'dl','11','2013-07-13 14:14:57');
+/*!40000 ALTER TABLE `Album` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Comment`
+--
+
+DROP TABLE IF EXISTS `Comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL,
+  `time` datetime NOT NULL,
+  `content` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `messageId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `Comment_4625e318` (`messageId`),
+  CONSTRAINT `messageId_refs_id_69d675b` FOREIGN KEY (`messageId`) REFERENCES `Message` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Comment`
+--
+
+LOCK TABLES `Comment` WRITE;
+/*!40000 ALTER TABLE `Comment` DISABLE KEYS */;
+INSERT INTO `Comment` VALUES (42,43,'2013-07-15 04:17:00','好骚啊～',87),(43,43,'2013-07-15 04:17:00','我也觉得！',87),(44,43,'2013-07-15 09:41:00','我去啊',88),(45,43,'2013-07-15 12:42:00','禽兽啊',89),(46,43,'2013-07-15 12:59:00','我啊啊',90),(47,45,'2013-07-16 06:01:00','试下啊',87),(48,45,'2013-07-16 06:01:00','禽兽啊～',88),(49,45,'2013-07-16 07:35:00','测试啦～',87),(50,43,'2013-07-16 07:54:00','骚爆了你！',91),(51,43,'2013-07-16 08:08:00','试下～',91),(52,43,'2013-07-16 08:11:00','法克啊',91),(53,43,'2013-07-16 08:13:00','法克啊',91),(54,43,'2013-07-16 08:14:00','擦伤',91),(55,43,'2013-07-16 08:15:00','我去啊',91),(56,45,'2013-07-16 08:15:00','仆街啊～',87),(57,45,'2013-07-16 08:18:00','我草啊～',87),(58,43,'2013-07-16 08:40:00','混蛋啊～',91),(59,52,'2013-07-17 09:12:00','测试下啊',95),(60,43,'2013-07-17 09:42:00','测试下～',95);
+/*!40000 ALTER TABLE `Comment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `CommentInform`
+--
+
+DROP TABLE IF EXISTS `CommentInform`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `CommentInform` (
+  `uid` int(11) NOT NULL,
+  `num` int(11) DEFAULT '0',
+  PRIMARY KEY (`uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CommentInform`
+--
+
+LOCK TABLES `CommentInform` WRITE;
+/*!40000 ALTER TABLE `CommentInform` DISABLE KEYS */;
+INSERT INTO `CommentInform` VALUES (24,8),(25,12),(26,1),(27,7),(28,2),(29,2),(30,0),(32,0),(33,0),(34,0),(35,1),(36,1),(37,1),(38,1),(39,0),(40,0),(41,1),(42,1),(43,1),(44,9),(45,1),(46,6),(47,0),(49,0),(50,0),(51,0),(52,0);
+/*!40000 ALTER TABLE `CommentInform` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `FansInform`
+--
+
+DROP TABLE IF EXISTS `FansInform`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `FansInform` (
+  `uid` int(11) NOT NULL,
+  `num` int(11) DEFAULT '0',
+  PRIMARY KEY (`uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `FansInform`
+--
+
+LOCK TABLES `FansInform` WRITE;
+/*!40000 ALTER TABLE `FansInform` DISABLE KEYS */;
+INSERT INTO `FansInform` VALUES (24,0),(25,0),(26,0),(27,0),(28,0),(29,0),(30,0),(32,0),(33,0),(34,0),(35,0),(36,0),(37,0),(38,0),(39,0),(40,0),(41,0),(42,0),(43,0),(44,0),(45,0),(46,0),(47,0),(49,0),(50,0),(51,0),(52,0);
+/*!40000 ALTER TABLE `FansInform` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Lovers`
+--
+
+DROP TABLE IF EXISTS `Lovers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Lovers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `lover1_id` int(11) NOT NULL,
+  `lover2_id` int(11) NOT NULL,
+  `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `notice` int(11) DEFAULT '0',
+  `fans` int(11) DEFAULT '0',
+  `avatar` varchar(11) DEFAULT 'default',
+  `time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `lover1_id` (`lover1_id`),
+  UNIQUE KEY `lover2_id` (`lover2_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Lovers`
+--
+
+LOCK TABLES `Lovers` WRITE;
+/*!40000 ALTER TABLE `Lovers` DISABLE KEYS */;
+INSERT INTO `Lovers` VALUES (20,44,43,'西瓜猪',NULL,NULL,'20','2012-07-22 00:00:00'),(21,46,45,'骚名好骚啊',NULL,NULL,'21','2012-07-22 00:00:00'),(22,49,47,'发克有',NULL,NULL,'22','2012-07-22 00:00:00'),(23,51,50,'测试啦～',NULL,NULL,'default','2012-07-22 00:00:00');
+/*!40000 ALTER TABLE `Lovers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Magicword`
+--
+
+DROP TABLE IF EXISTS `Magicword`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Magicword` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL,
+  `loverId` int(11) NOT NULL,
+  `time` datetime NOT NULL,
+  `content` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `Magicword_4468d8a9` (`userId`),
+  KEY `Magicword_2a2dcd0d` (`loverId`),
+  CONSTRAINT `loverId_refs_id_34a2625e` FOREIGN KEY (`loverId`) REFERENCES `Lovers` (`id`),
+  CONSTRAINT `userId_refs_id_1ecbd940` FOREIGN KEY (`userId`) REFERENCES `User` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Magicword`
+--
+
+LOCK TABLES `Magicword` WRITE;
+/*!40000 ALTER TABLE `Magicword` DISABLE KEYS */;
+INSERT INTO `Magicword` VALUES (1,43,20,'2013-07-17 10:01:00','测试下啊啊啊');
+/*!40000 ALTER TABLE `Magicword` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Message`
+--
+
+DROP TABLE IF EXISTS `Message`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Message` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL,
+  `loverId` int(11) NOT NULL,
+  `time` datetime NOT NULL,
+  `content` varchar(140) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `Message_4468d8a9` (`userId`),
+  KEY `Message_2a2dcd0d` (`loverId`),
+  CONSTRAINT `loverId_refs_id_667706f4` FOREIGN KEY (`loverId`) REFERENCES `Lovers` (`id`),
+  CONSTRAINT `userId_refs_id_1e1fdd42` FOREIGN KEY (`userId`) REFERENCES `User` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Message`
+--
+
+LOCK TABLES `Message` WRITE;
+/*!40000 ALTER TABLE `Message` DISABLE KEYS */;
+INSERT INTO `Message` VALUES (87,43,20,'2013-07-15 04:16:00','测试啊啊啊啊～[/表情3]','0'),(88,43,20,'2013-07-15 09:21:00','我草啊','0'),(89,43,20,'2013-07-15 12:41:00','阿骚好骚啊[/表情3]','0'),(90,43,20,'2013-07-15 12:45:00','[/表情4][/表情1]','0'),(91,45,21,'2013-07-16 05:10:00','测试下吧～～～','1'),(92,43,20,'2013-07-16 08:20:00','我也测试下啊','0'),(93,43,20,'2013-07-16 08:21:00','测试啊','0'),(94,43,20,'2013-07-16 08:26:00','啊萨斯的','0'),(95,43,20,'2013-07-16 08:26:00','我去啊','0');
+/*!40000 ALTER TABLE `Message` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Pcomment`
+--
+
+DROP TABLE IF EXISTS `Pcomment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Pcomment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `photo_id` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `content` varchar(200) DEFAULT NULL,
+  `time` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `Pcomment_7c6c8bb1` (`photo_id`),
+  CONSTRAINT `photo_id_refs_id_1fd64ce7` FOREIGN KEY (`photo_id`) REFERENCES `Photo` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Pcomment`
+--
+
+LOCK TABLES `Pcomment` WRITE;
+/*!40000 ALTER TABLE `Pcomment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Pcomment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Photo`
+--
+
+DROP TABLE IF EXISTS `Photo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Photo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `album_id` int(11) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `desc` varchar(100) DEFAULT NULL,
+  `time` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `Photo_1293c648` (`album_id`),
+  CONSTRAINT `album_id_refs_id_61104582` FOREIGN KEY (`album_id`) REFERENCES `Album` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Photo`
+--
+
+LOCK TABLES `Photo` WRITE;
+/*!40000 ALTER TABLE `Photo` DISABLE KEYS */;
+INSERT INTO `Photo` VALUES (1,4,'6b9nkQm2ZZ8uESzy.jpg','','2013-06-02 04:34:19'),(2,4,'HxrBriHWSphTF8cl.jpg','','2013-06-02 10:26:15'),(3,1,'neawCwsIwwybD3E7.jpg','','2013-06-02 11:34:53'),(4,1,'d9dV2hjVpVTTaNcL.jpg','','2013-06-02 11:35:18'),(5,5,'iFaTqpt8vCm2zLTW.jpg','','2013-07-13 14:15:18');
+/*!40000 ALTER TABLE `Photo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Relation`
+--
+
+DROP TABLE IF EXISTS `Relation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Relation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `from_uid` int(11) NOT NULL,
+  `to_lid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Relation`
+--
+
+LOCK TABLES `Relation` WRITE;
+/*!40000 ALTER TABLE `Relation` DISABLE KEYS */;
+INSERT INTO `Relation` VALUES (2,1,3),(3,1,4),(7,7,1),(8,7,2),(9,7,4),(10,7,5),(11,10,1),(12,10,2),(13,10,3),(14,9,3),(15,9,4),(16,9,2),(17,9,1),(18,1,5),(19,11,1),(20,19,10),(21,26,11),(23,24,12),(24,28,11),(25,28,12),(26,24,13),(27,30,11),(28,30,12),(29,30,13),(30,24,14),(31,37,16),(32,45,20),(33,46,20),(35,47,20),(36,47,21),(37,43,22),(38,50,20),(39,50,21),(40,50,22),(41,43,21),(44,43,23);
+/*!40000 ALTER TABLE `Relation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `RequestList`
+--
+
+DROP TABLE IF EXISTS `RequestList`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `RequestList` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `from_id` int(11) NOT NULL,
+  `to_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `from_id` (`from_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `RequestList`
+--
+
+LOCK TABLES `RequestList` WRITE;
+/*!40000 ALTER TABLE `RequestList` DISABLE KEYS */;
+/*!40000 ALTER TABLE `RequestList` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `User`
+--
+
+DROP TABLE IF EXISTS `User`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `User` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `email` varchar(75) NOT NULL,
+  `sex` varchar(1) NOT NULL,
+  `age` int(11) NOT NULL,
+  `spouseId` int(11) DEFAULT NULL,
+  `avatar` varchar(11) DEFAULT 'default',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `User`
+--
+
+LOCK TABLES `User` WRITE;
+/*!40000 ALTER TABLE `User` DISABLE KEYS */;
+INSERT INTO `User` VALUES (43,'dl','356a192b7913b04c54574d18c28d46e6395428ab','swd','m',11,44,'43'),(44,'jun','356a192b7913b04c54574d18c28d46e6395428ab','assadq','f',12,43,'44'),(45,'sao','356a192b7913b04c54574d18c28d46e6395428ab','324','m',12,46,'default'),(46,'pin','356a192b7913b04c54574d18c28d46e6395428ab','sdsdf','f',213,45,'46'),(47,'dd','356a192b7913b04c54574d18c28d46e6395428ab','sasdasd','m',11,49,'47'),(49,'qq','356a192b7913b04c54574d18c28d46e6395428ab','asdasqz','f',13,47,'default'),(50,'gan','356a192b7913b04c54574d18c28d46e6395428ab','asdasdvx','f',112,51,'default'),(51,'草','356a192b7913b04c54574d18c28d46e6395428ab','1298sd','f',11,50,'default'),(52,'suck','356a192b7913b04c54574d18c28d46e6395428ab','qwouzsxna,sdq','f',11,NULL,'default');
+/*!40000 ALTER TABLE `User` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_content_type`
+--
+
+DROP TABLE IF EXISTS `django_content_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_content_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `app_label` varchar(100) NOT NULL,
+  `model` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `app_label` (`app_label`,`model`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_content_type`
+--
+
+LOCK TABLES `django_content_type` WRITE;
+/*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
+INSERT INTO `django_content_type` VALUES (1,'content type','contenttypes','contenttype'),(2,'session','sessions','session'),(3,'lovers','users','lovers'),(4,'request list','users','requestlist'),(5,'user','users','user'),(6,'comment','message','comment'),(7,'message','message','message'),(8,'magicword','magicword','magicword'),(9,'album','album','album'),(10,'photo','album','photo'),(11,'comment','album','comment'),(12,'relation','users','relation');
+/*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_session`
+--
+
+DROP TABLE IF EXISTS `django_session`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_session` (
+  `session_key` varchar(40) NOT NULL,
+  `session_data` longtext NOT NULL,
+  `expire_date` datetime NOT NULL,
+  PRIMARY KEY (`session_key`),
+  KEY `django_session_3da3d3d8` (`expire_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_session`
+--
+
+LOCK TABLES `django_session` WRITE;
+/*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
+INSERT INTO `django_session` VALUES ('6d8816c1fa707017fdf91e9c7c1cc97b','ZWMyNTM3NjY4ZmU4Mjk2ZmM3MDllYTUyZTkyMTVlN2RhNDk0YzFiMjqAAn1xAShVA2xpZIoBAVUD\nYWlkVQEzVQR1c2VyWAIAAABkbHECVQxyZXF1ZXN0X2xpc3RdVQN1aWRxA1UBMXUu\n','2013-06-26 15:24:13'),('7957366bde687246040551821d549796','YzdiZWY0NDE4YWJhZDAzODMxMzIxNGEzOTFkYmI4Y2NmYmQ2ODgwNTqAAn1xAShVA2xpZHECigEU\nVQR1c2VycQNYAgAAAGRscQRVDHJlcXVlc3RfbGlzdHEFXVUDdWlkcQZVAjQzdS4=\n','2013-07-31 11:45:23'),('cf67f57e97735d422195ef4cb18d9d95','MTc3N2YzOWM0N2Y3OTI5NzUzMjUwNDBlZTJlYmQ2OGIzZDQwOThiOTqAAn1xAShVA2xpZHECigEB\nVQR1c2VycQNYAgAAAGRscQRVDHJlcXVlc3RfbGlzdHEFXVUDdWlkcQZVATF1Lg==\n','2013-06-16 13:03:08'),('d7084404640b4bc74c47592d47717803','NzgwMWUzMWNkMTUxZjZkNGUxODI1YmViM2MwNzBlYTFmYjRjNzNmMjqAAn1xAShVA2xpZHECigEL\nVQR1c2VycQNYAgAAAGRscQRVDHJlcXVlc3RfbGlzdHEFXVUDdWlkcQZVAjI0dS4=\n','2013-07-27 12:04:49'),('e6c8dbec17a85d908025cda02d153982','MGFiYmZmNmVhYjhkNDM4MGVjNzg2ZGE3MmM1MGM5NGE3N2QyYzQ4YjqAAn1xAShVA2xpZIoBFFUD\nYWlkVQE1VQR1c2VyWAIAAABkbFUMcmVxdWVzdF9saXN0XXUu\n','2013-07-31 10:02:43'),('efcbb9c36ce7ba38f7386022d6207813','Njk1ZmE0ODI5YTIxMDMxZjI1MmJkOGJkYzE1MWUwMTdhZWUyZDQ2NTqAAn1xAShVA2xpZIoBC1UE\ndXNlclgCAAAAZGxVDHJlcXVlc3RfbGlzdF11Lg==\n','2013-07-27 12:02:29'),('fea8ad596c708dc8d2fcc8c3f26bab6a','YzdiZWY0NDE4YWJhZDAzODMxMzIxNGEzOTFkYmI4Y2NmYmQ2ODgwNTqAAn1xAShVA2xpZHECigEU\nVQR1c2VycQNYAgAAAGRscQRVDHJlcXVlc3RfbGlzdHEFXVUDdWlkcQZVAjQzdS4=\n','2013-07-31 11:45:25');
+/*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2013-07-17 19:51:14

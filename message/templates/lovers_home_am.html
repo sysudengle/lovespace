@@ -1,0 +1,21 @@
+{% extends "unlog_common.html" %}
+
+{% block navbar %}
+{% include "unlog_navbar.html" %}
+{% endblock %}
+
+{% block link %}
+<link type="text/css" href="/static/css/message.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="/static/js/message2.js"></script>
+{% endblock js %}
+
+{% block middle %}
+<div id="message" class="grey-unit">
+	{% for single_message in message %}
+	{% include 'message_basic.html' %}
+	{% endfor %}
+</div>
+{% endblock %}

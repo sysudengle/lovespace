@@ -1,0 +1,17 @@
+{% if concern %}
+<div id="concern" class="grey-unit">
+<i class="icon-resize-full"></i> 我的关注
+	<div>
+	{% for c in concern %}
+		<div class="inline-block list_element">
+			<a href="/lovers/home/{{ c.lid }}/">
+				<img class="ss_img" src="/static/pic/loveravatar/{{ c.avatar }}_s.jpg"></img>
+				<p class="text-success">{{ c.lover_name }}</p>			
+			</a>
+		</div>
+	{% endfor %}
+	</div>
+	<div class="clear"></div>
+	<a href="/lovers/concern/{{ request.session.lid }}/{{ request.session.uid }}/">更多关注</a>
+</div>
+{% endif %}

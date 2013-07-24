@@ -1,0 +1,6 @@
+**************************************
+* build by DL
+* import mysql db
+**************************************
+execute the following command:
+mysql -h localhost -u root -p loveSpace<data.txt

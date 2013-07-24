@@ -1,0 +1,26 @@
+<div id="{{ single_message.mid }}" class="message_info container-fluid" alt="{{ single_message.user_id }}">
+	<button type="button" class="close">x</button>
+	<div class="row-fluid message_main">
+		<div class="avatar span2">
+			<img src="/static/pic/{{ lover }}avatar/{{ single_message.avatar }}_s.jpg"></img>
+		</div>
+		<div class="message_content span10">
+			<p class="msg_user">{{ single_message.user_name}}</p>
+				<p>{{ single_message.content }}</p>
+				<p id="c{{ single_message.mid}}">
+				</p>
+			{% if single_message.image %}
+			<div id="img{{ single_message.mid }}" class="img_block" data-mid="{{ single_message.mid }}" data-lid="{{ single_message.lid}}" alt="mid">
+				<img class="img-rounded" src="/static/pic/{{ single_message.lid }}/msg/{{ single_message.mid }}m.jpg"></img>
+			</div>
+			{% endif %}
+			<p>{{ single_message.time }}</p>
+			{% if request.session.uid %}
+			<a href="javascript:void(0)"> <i class="icon-thumbs-up"></i> 祝福</a> 
+			<a id="gc{{ single_message.mid }}" class="get_comment" data-mid="{{ single_message.mid }}" data-lid="{{ single_message.lid}}" alt="active" href="javascript:void(0)"> <i class="icon-comment-alt"></i> 评论</a>
+			<div id="uc{{ single_message.mid }}"></div>
+			{% endif %}
+		</div>
+	</div>
+	<!--	<hr></hr>-->
+</div>

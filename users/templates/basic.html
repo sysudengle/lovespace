@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<title>{% block title%}{% endblock%}</title>
+	</head>
+	<body>
+		<p><a href="/logout/">logout</a></p>
+		{% for request_user in request.session.request_list %}
+		<p>{{ request_user.1 }} wanna be your lover 
+		<a href="/{{ request.session.uid }}/user/acceptlover/{{ request_user.0 }}/">accept</a>
+		<a href="/{{ request.session.uid }}/user/refuselover/{{ request_user.0 }}/">refuse</a>
+		</p>
+		{% endfor %}
+		{% block body %}{% endblock %}
+		<div id="footer">All right reserved</div>
+	</body>
+</html>

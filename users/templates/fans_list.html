@@ -1,0 +1,27 @@
+<div id="fans_list" class="grey-unit function_area">
+	<caption>粉丝列表</caption>
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr>
+				<th>用户</th>
+				<th>年龄</th>
+				<th>email</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for fans in fans_list %}
+		<tr>
+			<td>
+				<img class="resize_img" src='/static/pic/avatar/{{ fans.avatar }}_s.jpg'></img>
+				<p>
+					<p>{{ fans.name }}</p>
+					<p>{{ fans.sex }}</p>
+				</p>
+			</td>
+			<td>{{ fans.age }}</td>
+			<td>{{ fans.email }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	</table>
+</div>

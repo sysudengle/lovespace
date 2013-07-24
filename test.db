@@ -1,0 +1,37 @@
+          |
+		  +----------+--------------+------+-----+---------+----------------+
+		  | id       | int(11)      | NO   | PRI | NULL    | auto_increment |
+		  | loversId | int(11)      | NO   |     | NULL    |                |
+		  | name     | varchar(100) | NO   |     | NULL    |                |
+		  | desc     | varchar(100) | NO   |     | NULL    |                |
+		  | time     | datetime     | NO   |     | NULL    |                |
+		  | photonum | int(11)      | YES  |     | NULL    |                |
+		  +----------+--------------+------+-----+---------+----------------+
+
+create table Album(
+	id int primary key auto_increment,
+	loversId int default null,
+	name varchar(100) default null,
+	description varchar(100) default null,
+	time datetime default null,
+	photonum int
+)engine=InnoDB;
+
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| id       | int(11)      | NO   | PRI | NULL    | auto_increment |
+| album_id | int(11)      | NO   | MUL | NULL    |                |
+| name     | varchar(100) | YES  |     | NULL    |                |
+| desc     | varchar(100) | YES  |     | NULL    |                |
+| time     | datetime     | NO   |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+
+create table Photo(
+	id int primary key auto_increment,
+	album_id int,
+	name varchar(100),
+	description varchar(100),
+	time datetime,
+	foreign key (album_id) references Album(id)
+)engine=InnoDB;

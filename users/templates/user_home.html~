@@ -1,0 +1,15 @@
+{% extends "basic.html" %}
+
+{% block body %}
+<p>user!</p>
+<p>{{ request.session.user }}</p>
+<form action="/{{ request.session.uid }}/user/search/" method="post">
+	{% csrf_token %}
+	<p>search<input type="text" name="search"/><input type="submit"></p>
+</form>
+{% for request_user in request_list %}
+<p><a href="/{{ request.session.uid }}/user/acceptlover/{{ request_user.from_id }}/">accept</a></p>
+<p><a href="/{{ request.session.uid }}/user/refuselover/{{ request_user.from_id }}/">refuse</a></p>
+<p>-----------------------------------------------------------------------------------------</p>
+{% endfor %}
+{% endblock %}

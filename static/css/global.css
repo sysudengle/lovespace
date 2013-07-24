@@ -1,0 +1,167 @@
+body {
+	padding-top: 50px;
+	background-color: #281F41;
+}
+
+.avatar {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.album_show {
+	width: 80%;
+	height: auto;
+}
+
+#input_text_block {
+}
+
+.ss_img {
+	height: 60px;
+}
+
+.returnTop {
+    position: fixed;
+    _position: absolute;
+    right: 4%;
+    bottom: 5%;
+    _bottom: "auto";
+    display: none;
+    width: 5%;
+    height: 10%;
+    border: 1px solid #61b72e;
+    border-radius:4px;
+    background: #fff;
+    box-shadow: 0 0 5px #F5F5F5;
+    cursor: pointer;
+	text-align: center;
+}
+
+.returnTop s {
+    position: absolute;
+    top: -2px;
+    _top: -20px;
+    left: 10px;
+    width: 0;
+    height: 0;
+    border-width: 10px;
+    border-color: transparent transparent #61b72e;
+    border-style: dashed dashed solid;
+}
+
+.returnTop b {
+    position: absolute;
+    top: 18px;
+    left: 16px;
+    height: 12px;
+    width: 8px;
+    background: #61b72e;
+}
+
+.user_area {
+	margin-right: 0;
+}
+
+.function_area {
+}
+
+#main {
+}
+
+.function_body {
+	margin-left: 0;
+}
+
+#left {
+}
+
+.clear {
+	clear: both;
+}
+
+.float-left {
+	float: left;
+}
+
+.grey-unit {
+  background-image: url("../img/unit.jpg");
+  color: inherit;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  text-align:center;
+  margin-bottom: 30px;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.list_element {
+	width: 30%;
+	height: 100%;
+	vertical-align: text-top;
+}
+
+.list_element img {
+	height: 40px;
+	width: 40px;
+}
+
+td {
+	height: 10px;
+}
+
+td img {
+	display: inline-block;
+}
+
+td > p {
+	display: inline-block;
+}
+
+.icon-girl {
+	background-image:url('../img/glyphicons_004_girl.png');
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-top: 1px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-repeat: no-repeat;
+}
+
+.resize_img {
+	width: 70px;
+	height: 70px;
+}
+
+#leftavatar, #rightavatar {
+	margin-left:0;
+	margin-right:0;
+}
+
+#commoncontent {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#daohang {
+	width: 1100px;
+}
+
+.tips {
+	margin-left: 10%;
+	text-align: left;
+}
+
+.single_concern {
+	height: 20%;
+}
+
+.other_lover {
+	width: 100%
+}

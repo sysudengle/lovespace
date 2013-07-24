@@ -1,0 +1,8 @@
+alter table Message add image varchar(1) not null;
+alter table Message engine=InnoDB;
+alter table Comment engine=InnoDB;
+alter table Relation engine=InnoDB;
+alter table User modify column name varchar(15) character set utf8 collate utf8_unicode_ci not null;
+alter table Comment modify column content varchar(100) character set utf8 collate utf8_unicode_ci not null;
+alter table Message modify column content varchar(140) character set utf8 collate utf8_unicode_ci not null;
+alter table Magicword modify column content varchar(140) character set utf8 collate utf8_unicode_ci not null;

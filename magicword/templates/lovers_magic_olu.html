@@ -1,0 +1,36 @@
+{% extends "lover_common.html" %}
+
+{% block navbar %}
+{% include "lover_navbar.html" %}
+{% endblock %}
+
+{% block concern %}
+{% include "user_common.html" %}
+{% endblock %}
+
+{% block link %}
+<link type="text/css" href="/static/css/magicword.css" rel="stylesheet"/>
+{% endblock %}
+{% block js %}
+<script src="/static/js/magicword.js"></script>
+{% endblock js %}
+{% block middle %}
+<div id="shit" alt="haha"></div>
+<div id="send_magicword_block" class="grey-unit">
+	<form class="form-vertical" action="#" method="post">
+		{% csrf_token %}
+		<label class="tips">发布双人密语，记录只属于你们的悄悄话吧～</label>
+		<p><textarea id="magicword_input" class="input-big"></textarea></p>
+		<div class="row-fluid">
+			<div class="span9"></div>
+			<button id="submit_magicword" class="span2 btn btn-info" type="button">发送</button>
+			<div class="span1"></div>
+		</div>
+	</form>
+</div>
+<div id="magicword" class="grey-unit">
+	{% for single_magicword in magicword %}
+	{% include 'magicword_basic.html' %}
+	{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<title>{% block title%}{% endblock%}</title>
+		<script type="text/javascript" src="/static/js/jquery.js"></script>
+		<link type="text/css" href="/static/css/bootstrap.css" rel="stylesheet" />
+		<link type="text/css" href="/static/css/global.css" rel="stylesheet" />
+		<link type="text/css" href="/static/css/datetimepicker.css" rel="stylesheet" />
+	</head>
+	<body>
+		{% block navbar %}{% endblock %}
+
+			<div class="container-fluid" id="main">
+				<div class="row-fluid">
+					<div id = "leftavatar" class="span3 row-fluid">
+						<div class="span4"></div>
+						<div class="span8">
+							<div class="grey-unit user_area">
+								<img class="avatar" src="/static/pic/avatar/{{ user.avatar}}_m.jpg"></img>
+								<p id="lover1" alt="{{ user.id }}">{{ user.name }}</p>
+								<p>{{ user.sex }} <i class="icon-girl"></i>| {{ user.age}}岁</p>
+							</div>
+						</div>
+					</div>
+					<div id="commoncontent" class="span6 function_body">
+						{% block middle %}{% endblock %}
+						{% block search %}{% endblock %}
+					</div>
+					<div id="rightavatar" class="span3 row-fluid">
+						<!--Sidebar content-->
+						<div class="span8 single_concern">
+							{% include "user_common.html" %}
+						</div>
+						<div class="span4"></div>
+					</div>
+				</div>
+  			</div>
+
+		<form id="lover_form" method="post" action="" enctype="multipart/form-data">
+			{% csrf_token %}
+			<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ 	 			<div class="modal-header">
+    				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    				<h3 id="myModalLabel">Start your love trip!</h3>
+		  		</div>
+		  		<div class="modal-body">
+				  	<p>Name:<input type="text" name="lover_name"></input></p>
+					<p><input size="16" type="text" name="date" value="2012-07-21" readonly class="form_datetime"></>
+				  	<p><input type="file" name="avatar"></input></p>
+		  		</div>
+		  		<div class="modal-footer">
+		    		<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+	    			<button type="submit" class="btn btn-primary">accept</button>
+		 		</div>
+			</div>
+		</form>
+		<script src="/static/js/bootstrap.js"></script>
+		<script src="/static/js/bootstrap-dropdown.js"></script>
+		<script src="/static/js/user_home.js"></script>
+		<script type="text/javascript" src="/static/js/bootstrap-datetimepicker.js"></script>
+		<script type="text/javascript" src="/static/js/register.js"></script>
+	</body>
+</html>

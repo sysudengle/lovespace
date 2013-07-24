@@ -1,0 +1,6 @@
+{% extends 'lovers_basic.html' %}
+{% block middle %}
+	{% for comment in comments %}
+	<p alt="{{ comment.uid }}">{{ comment.name }}<img src="/static/pic/avatar/{{ comment.avatar }}_s.jpg"></img>{{ comment.content }}</p>
+	{% endfor %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "lover_common.html" %}
+
+{% block navbar %}
+{% include "single_navbar.html" %}
+{% endblock %}
+
+{% block concern %}
+{% include "user_common.html" %}
+{% endblock %}
+
+{% block link %}
+<link type="text/css" href="/static/css/message.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="/static/js/message2.js"></script>
+{% endblock js %}
+
+{% block other_lover_navbar %}
+{% include "other_lover_navbar.html" %}
+{% endblock %}
+
+{% block middle %}
+<div id="message" class="grey-unit">
+	{% for single_message in message %}
+	{% include 'message_basic.html' %}
+	{% endfor %}
+</div>
+<div id="test"></div>
+{% endblock %}

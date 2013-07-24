@@ -1,0 +1,19 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<ul class="nav">
+				<li><a class="brand">LoveSpace</a></li>
+				<li><a href="/{{ request.session.uid }}/user/">个人主页</a></li>
+				<form action="/{{ request.session.uid }}/user/search/" method="post" class="navbar-search pull-left">
+					{% csrf_token %}
+					<p>search
+					<input type="text" name="search" class="search-query" placeholder="搜索用户/情侣空间"/>
+					<button type="submit" class="btn btn-inverse btn-small">搜索</button>
+					</p>
+				</form>
+				<li><a href="/logout/">退出</a></li>
+				<li><a id="user" alt="{{ request.session.uid }}" href="/{{ request.session.uid }}/user/">{{ request.session.user }}</a></li>
+			</ul>
+		</div>
+	</div>
+</div>

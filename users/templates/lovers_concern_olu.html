@@ -1,0 +1,17 @@
+{% extends "lover_common.html" %}
+
+{% block navbar %}
+{% include "lover_navbar.html" %}
+{% endblock %}
+
+{% block concern %}
+{% include "user_common.html" %}
+{% endblock %}
+
+{% block middle %}
+{% include "concern_list.html" %}
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="/static/js/search.js"></script>
+{% endblock %}

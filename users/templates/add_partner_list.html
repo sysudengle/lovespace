@@ -1,0 +1,38 @@
+<div id="fans_list">
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr>
+				<th>用户</th>
+				<th>年龄</th>
+				<th>email</th>
+				<th>add</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for fans in fans_list %}
+		<tr>
+			<td>
+				<img class="resize_img" src='/static/pic/avatar/{{ fans.avatar }}_s.jpg'></img>
+				<p>
+					<p>{{ fans.name }}</p>
+					<p>{{ fans.sex }}</p>
+				</p>
+			</td>
+			<td>{{ fans.age }}</td>
+			<td>{{ fans.email }}</td>
+			<td>
+				{% if to_id %}
+					{% ifequal fans.uid to_id %}
+					<button class="delete_request btn btn-danger" data-uid="{{ fans.uid }}">取消请求</button>
+					{% else %}
+					<button class="ban btn disabled" data-uid="{{ fans.uid }}">邀请伴侣</button>
+					{% endifequal %}
+				{% else %}
+				<button class="add_request btn btn-primary" data-uid="{{ fans.uid }}">邀请伴侣</button>
+				{% endif %}
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	</table>
+</div>

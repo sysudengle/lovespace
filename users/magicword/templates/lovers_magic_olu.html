@@ -1,0 +1,33 @@
+{% extends "lover_common.html" %}
+
+{% block navbar %}
+{% include "lover_navbar.html" %}
+{% endblock %}
+
+{% block concern %}
+{% include "user_common.html" %}
+{% endblock %}
+
+{% block link %}
+<link type="text/css" href="/static/css/magicword.css" rel="stylesheet"/>
+{% endblock %}
+{% block js %}
+<script src="/static/js/magicword.js"></script>
+{% endblock js %}
+{% block middle %}
+<p>my own love space!</p>
+<div id="shit" alt="haha"></div>
+<div id="send_magicword_block">
+	<form class="form-vertical" action="#" method="post">
+		{% csrf_token %}
+		<label>magic word</label>
+		<p><input id="magicword_input" class="input-big" type="textarea"></input></p>
+		<button id="submit_magicword" class="btn btn-info" type="button">send</button>
+	</form>
+</div>
+<div id="magicword">
+	{% for single_magicword in magicword %}
+	{% include 'magicword_basic.html' %}
+	{% endfor %}
+</div>
+{% endblock %}

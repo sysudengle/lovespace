@@ -1,0 +1,58 @@
+{% extends "lover_common.html" %}
+
+{% block navbar %}
+{% include "unlog_navbar.html" %}
+{% endblock %}
+
+{% block concern %}
+{% include "user_common.html" %}
+{% endblock %}
+
+{% block title %} {{ albumName }} {% endblock %}
+
+{% block link %}
+<link rel="stylesheet" type="text/css" href="/static/css/showPhoto.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/static/fancybox/jquery.fancybox.css" media="screen" />
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="/static/fancybox/jquery.fancybox.js"></script>
+<script src="/static/js/uploadPhoto.js" type="text/javascript"></script>
+<script src="/static/js/showPhoto.js" type="text/javascript"></script>
+
+{% endblock %}
+
+{% block middle %}
+<div id = "content" class="grey-unit function_area">
+    <a id="return" class = "btn btn-info" href="/lovers/album/{{ lovers.lid }}/page1/">返回相册</a>
+    <div class="page-header">
+        <h1> {{ album.name }} <small>{{ album.time }}</small> </h1>
+    </div>
+	
+	<div id="upload">
+	{% for photo in photos %}
+		<div id = "{{ photo.name}}" class="float">
+			<a class="fancybox" data-fancybox-group="gallery" href="/static/pic/{{ lovers.lid }}/{{ album.id }}/{{ photo.name }}"><img src="/static/pic/{{ lovers.lid }}/{{ album.id }}/c{{ photo.name }}" alt="" /></a>
+		</div>
+    {% endfor %}
+	</div>
+	
+	<div id="clear"></div>
+
+    {% if havephoto %}
+    <div class="pagination pagination-right">
+        <ul>
+            {% if notfirst %}
+            <li> <a href="/lovers/photo/{{ lovers.lid }}/{{ album.id }}/page{{ pagepre }}/">上一页</a> </li>
+            {% endif %}
+            {% for index in pageindex %}
+            <li> <a href="/lovers/photo/{{ lovers.lid }}/{{ album.id }}/page{{ index }}/">{{ index }}</a> </li>
+            {% endfor %}
+            {% if notlast %}
+            <li> <a href="/lovers/photo/{{ lovers.lid }}/{{ album.id }}/page{{ pagepost }}/">下一页</a> </li>
+            {% endif %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

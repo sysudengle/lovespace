@@ -1,0 +1,35 @@
+		<div id="navigator">
+			<div class="navbar navbar-inverse navbar-fixed-top">
+				<div class="navbar-inner">
+					<div id="daohang" class="container">
+						<ul class="nav">
+							<li><a class="brand"> <i class="icon-heart"></i> LoveSpace</a></li>
+							<li class="{{ home }}"><a href="/lovers/home/{{ request.session.lid }}/"> <i class="icon-home"></i> 空间主页</a></li>
+							<li class="{{ magic }}"><a href="/lovers/magic/{{ request.session.lid }}/"> <i class="icon-lock"></i> 双人密语</a></li>
+							<li class="{{ dong }}"><a href="/lovers/concern_msg/{{ request.session.lid }}/"> <i class="icon-group"></i> 关注动态</a></li>
+							<li class="{{ xiangce }}"><a href="/lovers/album/{{ request.session.lid }}/page1/"> <i class="icon-picture"></i> 相册</a></li>
+							<form action='/lovers/search/{{ request.session.lid }}/' method="post" class="navbar-search pull-left">
+								{% csrf_token %}
+								<input type="text" name="search" class="search-query" placeholder="搜索用户/情侣空间">
+								<button type="submit" class="btn btn-inverse btn-small">搜索</button>
+							</form>
+							<li class="divider-vertical"></li>
+							<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-bullhorn"></i> 消息<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="/lovers/comment/{{ request.session.lid }}/">新的评论<b id="comment_inform">{{ inform.comment }}</b></a></li>
+									<li><a href="/lovers/fans/{{ request.session.lid }}/">新的粉丝<b id="fans_inform">{{ inform.fans }}</b></a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+							<a href="#" id="user" alt="{{ request.session.uid }}" class="dropdown-toggle" data-user="{{ request.session.user }}" data-toggle="dropdown"> <i class="icon-cog"></i> {{ request.session.user }}<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="/logout/">帮助</a></li>
+									<li><a href="/logout/">退出</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>	
+		</div>

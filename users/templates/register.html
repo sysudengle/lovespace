@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<link type="text/css" href="/static/css/bootstrap.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div id="navigator">
+			<div class="navbar navbar-inverse">
+				<div class="navbar-inner">
+					<div class="container">
+						<ul class="nav">
+							<li><a class="brand">LoveSpace</a></li>
+							<li><a href="/login/">登录</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<form class="form-horizontal" action="/register_finish/" method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+			 	<div class="control-group">
+			    	<label class="control-label" for="inputName">用户名</label>
+					<div class="controls">
+	      				<input type="text" id="inputName" name="name" placeholder="">
+					</div>
+				</div>
+			 	<div class="control-group">
+			    	<label class="control-label" for="inputPassword">密码</label>
+					<div class="controls">
+	      				<input type="password" id="inputPassword" name="password" placeholder="">
+					</div>
+				</div>
+			 	<div class="control-group">
+			    	<label class="control-label" for="inputAge">年龄</label>
+					<div class="controls">
+	      				<input type="text" id="inputAge" name="age" placeholder="">
+					</div>
+				</div>
+			 	<div class="control-group">
+			    	<label class="control-label" for="inputSex">性别</label>
+					<div class="controls">
+						<input type="radio" name="sex" value="m" />男<input type="radio" name="sex" value="f" />女
+					</div>
+				</div>
+			 	<div class="control-group">
+			    	<label class="control-label" for="inputEmail">邮箱</label>
+					<div class="controls">
+	      				<input type="text" id="inputEmail" name="email" placeholder="">
+					</div>
+				</div>
+			 	<div class="control-group">
+			    	<label class="control-label" for="inputAvatar">头像</label>
+					<div class="controls">
+			      		<label class="checkbox">
+							<input type="file" name="avatar"></input>
+			      		</label>
+			      		<button type="submit" class="btn btn-primary">注册</button>
+					</div>
+				</div>
+			</form>
+			{% if error_list %}
+				fuck!
+			{% endif %}
+		</div>
+	</body>
+	<script type="text/javascript" src="/static/js/jquery.js"></script>
+	<script src="/static/js/bootstrap.js"></script>
+</html>

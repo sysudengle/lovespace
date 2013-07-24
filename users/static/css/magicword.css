@@ -1,0 +1,15 @@
+#magicword_input {
+	min-height: 200px;
+	min-width: 400px;
+}
+
+.mgw_content {
+	display: inline-block;
+	vertical-align: text-top;
+	margin-top: 0;
+}
+
+.avatar {
+	display: inline-block;
+	margin-top: 20px;
+}

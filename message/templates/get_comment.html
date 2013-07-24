@@ -1,0 +1,11 @@
+<div>
+	<div>
+		<input id="ct{{ request.POST.mid }}" type="text"></input>
+		<button id="sc{{ request.POST.mid }}" class="comment btn" data-lid="{{ request.POST.lid }}" data-mid="{{ request.POST.mid }}" class="comment">评论</button>
+	</div>
+	<div id="cc{{ request.POST.mid }}" class="comment_body">
+		{% for comment in comments %}
+		{% include "comment_basic.html" %}
+		{% endfor %}
+	</div>
+</div>

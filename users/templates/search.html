@@ -1,0 +1,30 @@
+{% extends "single_common.html" %}
+
+{% block navbar %}
+{% include "single_navbar.html" %}
+{% endblock %}
+
+{% block concern %}
+{% include "user_common.html" %}
+{% endblock %}
+
+{% block search %}
+<div class="grey-unit">
+	<ul class="nav nav-tabs" id="myTab">
+	 	<li class="active"><a href="#concern">情侣空间列表</a></li>
+	  	<li><a href="#fans">用户列表</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id="concern">
+			{% include "concern_list.html" %}
+		</div>
+		<div class="tab-pane" id="fans">
+			{% include "add_partner_list.html" %}
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="/static/js/search.js"></script>
+{% endblock %}

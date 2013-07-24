@@ -1,0 +1,13 @@
+<div id="magic{{ single_magicword.mid }}" class="magicword_info container-fluid" alt="{{ single_magicword.user_id }}">
+	<button type="button" class="close">x</button>
+	<div class="row-fluid magicword_main">
+		<div class="avatar span2">
+			<img src="/static/pic/avatar/{{ single_magicword.avatar }}_s.jpg"></img>
+		</div>
+		<div class="magicword_content span10">
+			<p class="mgw_user">{{ single_magicword.user_name}}</p>
+			<p>{{ single_magicword.content }}</p>
+			<p>{{ single_magicword.time }}</p>
+		</div>
+	</div>
+</div>

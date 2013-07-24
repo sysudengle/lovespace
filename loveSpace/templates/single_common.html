@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}{% endblock %}</title>
+		<script type="text/javascript" src="/static/js/jquery.js"></script>
+		<link type="text/css" href="/static/css/bootstrap.css" rel="stylesheet" />
+		<link type="text/css" href="/static/css/global.css" rel="stylesheet" />
+		<link type="text/css" href="/static/css/qqFace.css" rel="stylesheet"/>
+		<link type="text/css" href="/static/uploadify/uploadify.css" rel="stylesheet"/>
+		{% block link %}{% endblock %}
+	</head>
+	<body>
+		<div id="body">
+			{% block navbar %}{% endblock %} 
+			<div class="container-fluid" id="main">
+				<div class="row-fluid">
+					<div id = "leftavatar" class="span3 row-fluid">
+						<div class="span4"></div>
+						{% if lovers %}
+						<div class="span8">
+							<div class="grey-unit user_area">
+								<img class="avatar" src="/static/pic/avatar/{{ lovers.lover1_avatar}}_m.jpg"></img>
+								<p id="lover1" alt="{{ lovers.lover1_id }}">{{ lovers.lover1_name }}</p>
+								<p>{{ lovers.lover1_sex }} <i class="icon-girl"></i>| {{ lovers.lover1_age}}岁</p>
+							</div>
+							<div class="grey-unit user_area">
+								我们的合照
+								<p><a href="#"><img class="avatar" src="/static/pic/loveravatar/{{ lovers.lovers_avatar}}_m.jpg"></img></a></p>
+								<p id="lovespace" alt="{{ lovers.lid }}">{{ lovers.lovespace }}</p>
+								<p>相爱{{ lovers.time }}天</p>
+							</div>
+						</div>
+						{% endif %}
+					</div>
+					<div id = "commoncontent" class="span6 function_body">
+						{% block other_lover_navbar %}{% endblock %}
+						<div id="input_text_block">{% block middle %}{% endblock %}</div>
+						<div id="search">{% block search %}{% endblock %}</div>
+					</div>
+					<div id = "rightavatar" class="span3 row-fluid">
+						<!--Sidebar content-->
+						<div class="span8">
+							{% if lovers %}
+							<div class="grey-unit user_area">
+								<div><img class="avatar" src="/static/pic/avatar/{{ lovers.lover2_avatar }}_m.jpg"></img></div>
+								<p id="lover2" alt="{{ lovers.lover2_id }}">{{ lovers.lover2_name }}</p>
+								<p>{{ lovers.lover2_sex }} | {{ lovers.lover2_age}}岁</p>
+							</div>
+							{% endif %}
+							{% block concern %}{% endblock %}
+						</div>
+						<div class="span4"></div>
+					</div>
+				</div>
+  			</div>
+  		</div>
+		<div class="returnTop" title="Top">
+			Top
+		</div>
+		<!--		<a href="#" onclick="goTop();return false;">TOP</a>-->
+		<div id="footer"></div>
+		<script src="/static/js/bootstrap.js"></script>
+		<script src="/static/js/bootstrap-dropdown.js"></script>
+		<script src="/static/js/underscore.js"></script>
+		<script src="/static/js/backbone.js"></script>
+		<script src="/static/js/common.js"></script>
+		<script src="/static/uploadify/jquery.uploadify.js"></script>
+		<script type="text/javascript" src="/static/js/jquery.qqFace.js"></script>
+		{% block js %}{% endblock %}
+	</body>
+</html>
