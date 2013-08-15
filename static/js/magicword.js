@@ -16,7 +16,7 @@ function init_close_button()
 function submit_magicword_by_ajax()
 {
 	content = $('#magicword_input').val()
-	user = $('#user').html()
+	user = $('#user').data('user');
 	uid = $('#user').attr('alt')
 	lid = $('#lovespace').attr('alt')
 	$.ajax({

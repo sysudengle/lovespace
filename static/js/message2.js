@@ -38,7 +38,7 @@ function Message()
 			fileTypeExts: '*.jpg;*.gif;*.png',
 			onUploadSuccess: function(file, data, response) {
 			// use user id to make it convienient to delete the temp image file
-				$('#db').after("<img id='temp_img" + uid + "' src='/static/pic/" + lid + "/temp_s" + uid + ".jpg' />");
+				$('#prepare').html("<div class='span12'><img id='temp_img" + uid + "' src='/static/pic/" + lid + "/temp_s" + uid + ".jpg' /></div>");
 			}
 		});
 	}

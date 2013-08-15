@@ -57,7 +57,6 @@ function Album()
 			var type = e.target.parentNode.parentNode.className;
 			if(type == 'thumbnail albumblock')
 			{
-				alert(info.uid);
 				var data = {'aid': id, 'lid': info.lid, 'uid': info.uid};
 				var url = '/lovers/album/deletealbum/';
 				ajax_delete(id, data, url);

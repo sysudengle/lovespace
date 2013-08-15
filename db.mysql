@@ -24,12 +24,13 @@ DROP TABLE IF EXISTS `Album`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Album` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `loversId` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `desc` varchar(100) NOT NULL,
-  `time` datetime NOT NULL,
+  `loversId` int(11) DEFAULT NULL,
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `descri` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `time` datetime DEFAULT NULL,
+  `photonum` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +39,7 @@ CREATE TABLE `Album` (
 
 LOCK TABLES `Album` WRITE;
 /*!40000 ALTER TABLE `Album` DISABLE KEYS */;
-INSERT INTO `Album` VALUES (1,1,'test','test~','2013-06-02 02:10:15'),(2,1,'test','test~','2013-06-02 02:19:53'),(3,1,'ll','1qwe','2013-06-02 02:23:03'),(4,1,'ll','1qwe','2013-06-02 02:23:58'),(5,12,'dl','11','2013-07-13 14:14:57');
+INSERT INTO `Album` VALUES (21,20,'阿凡','发','2013-07-20 02:58:21',13),(29,20,'邓乐12秒?','24秒2次!','2013-07-21 14:15:36',0),(30,27,'122','123','2013-07-21 15:39:45',1);
 /*!40000 ALTER TABLE `Album` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,7 +59,7 @@ CREATE TABLE `Comment` (
   PRIMARY KEY (`id`),
   KEY `Comment_4625e318` (`messageId`),
   CONSTRAINT `messageId_refs_id_69d675b` FOREIGN KEY (`messageId`) REFERENCES `Message` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +68,7 @@ CREATE TABLE `Comment` (
 
 LOCK TABLES `Comment` WRITE;
 /*!40000 ALTER TABLE `Comment` DISABLE KEYS */;
-INSERT INTO `Comment` VALUES (42,43,'2013-07-15 04:17:00','好骚啊～',87),(43,43,'2013-07-15 04:17:00','我也觉得！',87),(44,43,'2013-07-15 09:41:00','我去啊',88),(45,43,'2013-07-15 12:42:00','禽兽啊',89),(46,43,'2013-07-15 12:59:00','我啊啊',90),(47,45,'2013-07-16 06:01:00','试下啊',87),(48,45,'2013-07-16 06:01:00','禽兽啊～',88),(49,45,'2013-07-16 07:35:00','测试啦～',87),(50,43,'2013-07-16 07:54:00','骚爆了你！',91),(51,43,'2013-07-16 08:08:00','试下～',91),(52,43,'2013-07-16 08:11:00','法克啊',91),(53,43,'2013-07-16 08:13:00','法克啊',91),(54,43,'2013-07-16 08:14:00','擦伤',91),(55,43,'2013-07-16 08:15:00','我去啊',91),(56,45,'2013-07-16 08:15:00','仆街啊～',87),(57,45,'2013-07-16 08:18:00','我草啊～',87),(58,43,'2013-07-16 08:40:00','混蛋啊～',91),(59,52,'2013-07-17 09:12:00','测试下啊',95),(60,43,'2013-07-17 09:42:00','测试下～',95);
+INSERT INTO `Comment` VALUES (42,43,'2013-07-15 04:17:00','好骚啊～',87),(43,43,'2013-07-15 04:17:00','我也觉得！',87),(44,43,'2013-07-15 09:41:00','我去啊',88),(45,43,'2013-07-15 12:42:00','禽兽啊',89),(46,43,'2013-07-15 12:59:00','我啊啊',90),(47,45,'2013-07-16 06:01:00','试下啊',87),(48,45,'2013-07-16 06:01:00','禽兽啊～',88),(49,45,'2013-07-16 07:35:00','测试啦～',87),(51,43,'2013-07-16 08:08:00','试下～',91),(52,43,'2013-07-16 08:11:00','法克啊',91),(53,43,'2013-07-16 08:13:00','法克啊',91),(54,43,'2013-07-16 08:14:00','擦伤',91),(55,43,'2013-07-16 08:15:00','我去啊',91),(56,45,'2013-07-16 08:15:00','仆街啊～',87),(57,45,'2013-07-16 08:18:00','我草啊～',87),(58,43,'2013-07-16 08:40:00','混蛋啊～',91),(59,52,'2013-07-17 09:12:00','测试下啊',95),(60,43,'2013-07-17 09:42:00','测试下～',95),(61,43,'2013-07-18 07:54:00','撒阿骚打算',100),(62,59,'2013-07-19 02:43:00','傻逼啊',105),(63,59,'2013-07-19 02:43:00','我也觉得啊',105),(64,59,'2013-07-19 02:54:00','店外麦啊',106),(65,43,'2013-07-19 12:37:00','I can\'t agree any more!',103),(66,57,'2013-07-19 12:42:00','点赞',107),(67,63,'2013-07-19 15:17:00','测试啦',110),(72,64,'2013-07-21 14:19:00','你个傻逼',123),(73,43,'2013-07-21 14:20:00','我是傻逼',119),(75,43,'2013-07-21 14:36:00','草拟嘛！',123),(76,57,'2013-07-21 15:13:00','sd',109),(77,81,'2013-07-21 16:03:00','顶楼主啊！！',128);
 /*!40000 ALTER TABLE `Comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -91,7 +92,7 @@ CREATE TABLE `CommentInform` (
 
 LOCK TABLES `CommentInform` WRITE;
 /*!40000 ALTER TABLE `CommentInform` DISABLE KEYS */;
-INSERT INTO `CommentInform` VALUES (24,8),(25,12),(26,1),(27,7),(28,2),(29,2),(30,0),(32,0),(33,0),(34,0),(35,1),(36,1),(37,1),(38,1),(39,0),(40,0),(41,1),(42,1),(43,1),(44,9),(45,1),(46,6),(47,0),(49,0),(50,0),(51,0),(52,0);
+INSERT INTO `CommentInform` VALUES (24,8),(25,12),(26,1),(27,7),(28,2),(29,2),(30,0),(32,0),(33,0),(34,0),(35,1),(36,1),(37,1),(38,1),(39,0),(40,0),(41,1),(42,1),(43,1),(44,11),(45,1),(46,0),(47,0),(49,0),(50,0),(51,0),(52,0),(53,0),(54,0),(55,0),(56,0),(57,1),(58,1),(59,3),(60,3),(61,0),(62,0),(63,0),(64,0),(65,0),(66,0),(67,0),(68,0),(69,0),(71,0),(72,0),(74,0),(75,0),(76,0),(77,0),(78,0),(79,0),(80,0),(81,1),(82,1);
 /*!40000 ALTER TABLE `CommentInform` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,7 +116,7 @@ CREATE TABLE `FansInform` (
 
 LOCK TABLES `FansInform` WRITE;
 /*!40000 ALTER TABLE `FansInform` DISABLE KEYS */;
-INSERT INTO `FansInform` VALUES (24,0),(25,0),(26,0),(27,0),(28,0),(29,0),(30,0),(32,0),(33,0),(34,0),(35,0),(36,0),(37,0),(38,0),(39,0),(40,0),(41,0),(42,0),(43,0),(44,0),(45,0),(46,0),(47,0),(49,0),(50,0),(51,0),(52,0);
+INSERT INTO `FansInform` VALUES (24,0),(25,0),(26,0),(27,0),(28,0),(29,0),(30,0),(32,0),(33,0),(34,0),(35,0),(36,0),(37,0),(38,0),(39,0),(40,0),(41,0),(42,0),(43,0),(44,0),(45,0),(46,0),(47,0),(49,0),(50,0),(51,0),(52,0),(53,0),(54,0),(55,0),(56,0),(57,0),(58,0),(59,0),(60,0),(61,0),(62,0),(63,0),(64,0),(65,0),(66,0),(67,0),(68,0),(69,0),(71,0),(72,0),(74,0),(75,0),(76,0),(77,0),(78,0),(79,0),(80,0),(81,0),(82,0);
 /*!40000 ALTER TABLE `FansInform` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,7 +139,7 @@ CREATE TABLE `Lovers` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `lover1_id` (`lover1_id`),
   UNIQUE KEY `lover2_id` (`lover2_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,7 +148,7 @@ CREATE TABLE `Lovers` (
 
 LOCK TABLES `Lovers` WRITE;
 /*!40000 ALTER TABLE `Lovers` DISABLE KEYS */;
-INSERT INTO `Lovers` VALUES (20,44,43,'西瓜猪',NULL,NULL,'20','2012-07-22 00:00:00'),(21,46,45,'骚名好骚啊',NULL,NULL,'21','2012-07-22 00:00:00'),(22,49,47,'发克有',NULL,NULL,'22','2012-07-22 00:00:00'),(23,51,50,'测试啦～',NULL,NULL,'default','2012-07-22 00:00:00');
+INSERT INTO `Lovers` VALUES (20,44,43,'西瓜猪',NULL,NULL,'20','2012-07-22 00:00:00'),(21,46,45,'骚名好骚啊',NULL,NULL,'21','2012-07-22 00:00:00'),(22,49,47,'发克有',NULL,NULL,'22','2012-07-22 00:00:00'),(23,51,50,'测试啦～',NULL,NULL,'default','2012-07-22 00:00:00'),(24,54,53,'啦啦啦啊',NULL,NULL,'default','2012-07-18 16:00:00'),(25,56,55,'伟哥爱打飞机',NULL,NULL,'default','2012-09-16 16:00:00'),(26,60,59,'骚报了',NULL,NULL,'default','2012-07-20 16:00:00'),(27,57,58,'我只是来打酱油的',NULL,NULL,'default','2012-07-20 16:00:00'),(28,63,52,'test',NULL,NULL,'default','2012-07-20 16:00:00'),(29,66,65,'骚到2B了～',NULL,NULL,'default','2012-07-20 16:00:00'),(30,76,75,'西瓜狗',NULL,NULL,'default','2012-07-20 16:00:00'),(31,78,77,'搞基',NULL,NULL,'default','2012-07-25 16:00:00'),(32,79,72,'啦啦啦啦！',NULL,NULL,'default','2012-07-20 16:00:00'),(33,82,81,'西瓜猪头啦～',NULL,NULL,'default','2012-07-21 16:00:00'),(34,68,67,'啦啦啦啦！啊啊',NULL,NULL,'default','2012-07-20 16:00:00');
 /*!40000 ALTER TABLE `Lovers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,7 +170,7 @@ CREATE TABLE `Magicword` (
   KEY `Magicword_2a2dcd0d` (`loverId`),
   CONSTRAINT `loverId_refs_id_34a2625e` FOREIGN KEY (`loverId`) REFERENCES `Lovers` (`id`),
   CONSTRAINT `userId_refs_id_1ecbd940` FOREIGN KEY (`userId`) REFERENCES `User` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +179,7 @@ CREATE TABLE `Magicword` (
 
 LOCK TABLES `Magicword` WRITE;
 /*!40000 ALTER TABLE `Magicword` DISABLE KEYS */;
-INSERT INTO `Magicword` VALUES (1,43,20,'2013-07-17 10:01:00','测试下啊啊啊');
+INSERT INTO `Magicword` VALUES (1,43,20,'2013-07-17 10:01:00','测试下啊啊啊'),(2,43,20,'2013-07-18 08:34:00','测试啊'),(3,57,27,'2013-07-19 12:45:00','这两个有什么不同？'),(4,58,27,'2013-07-19 12:49:00','试试就知道了'),(5,43,20,'2013-07-20 17:26:00','dsad'),(6,43,20,'2013-07-20 17:26:00','sadas');
 /*!40000 ALTER TABLE `Magicword` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -201,7 +202,7 @@ CREATE TABLE `Message` (
   KEY `Message_2a2dcd0d` (`loverId`),
   CONSTRAINT `loverId_refs_id_667706f4` FOREIGN KEY (`loverId`) REFERENCES `Lovers` (`id`),
   CONSTRAINT `userId_refs_id_1e1fdd42` FOREIGN KEY (`userId`) REFERENCES `User` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=129 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -210,36 +211,8 @@ CREATE TABLE `Message` (
 
 LOCK TABLES `Message` WRITE;
 /*!40000 ALTER TABLE `Message` DISABLE KEYS */;
-INSERT INTO `Message` VALUES (87,43,20,'2013-07-15 04:16:00','测试啊啊啊啊～[/表情3]','0'),(88,43,20,'2013-07-15 09:21:00','我草啊','0'),(89,43,20,'2013-07-15 12:41:00','阿骚好骚啊[/表情3]','0'),(90,43,20,'2013-07-15 12:45:00','[/表情4][/表情1]','0'),(91,45,21,'2013-07-16 05:10:00','测试下吧～～～','1'),(92,43,20,'2013-07-16 08:20:00','我也测试下啊','0'),(93,43,20,'2013-07-16 08:21:00','测试啊','0'),(94,43,20,'2013-07-16 08:26:00','啊萨斯的','0'),(95,43,20,'2013-07-16 08:26:00','我去啊','0');
+INSERT INTO `Message` VALUES (87,43,20,'2013-07-15 04:16:00','测试啊啊啊啊～[/表情3]','0'),(88,43,20,'2013-07-15 09:21:00','我草啊','0'),(89,43,20,'2013-07-15 12:41:00','阿骚好骚啊[/表情3]','0'),(90,43,20,'2013-07-15 12:45:00','[/表情4][/表情1]','0'),(91,45,21,'2013-07-16 05:10:00','测试下吧～～～','1'),(92,43,20,'2013-07-16 08:20:00','我也测试下啊','0'),(93,43,20,'2013-07-16 08:21:00','测试啊','0'),(94,43,20,'2013-07-16 08:26:00','啊萨斯的','0'),(95,43,20,'2013-07-16 08:26:00','我去啊','0'),(96,43,20,'2013-07-17 15:28:00','在测试啊','0'),(97,43,20,'2013-07-18 07:21:00','casca','1'),(98,43,20,'2013-07-18 07:25:00','测试下','1'),(99,43,20,'2013-07-18 07:48:00','测试啊','0'),(100,43,20,'2013-07-18 07:51:00','萨达是','0'),(101,46,21,'2013-07-18 09:18:00','我了其啊去去','0'),(102,55,25,'2013-07-18 12:15:00','打飞机～～～','0'),(103,43,20,'2013-07-18 15:20:00','dl是蠢货','1'),(104,58,27,'2013-07-18 15:54:00','我只是来打酱油的','0'),(105,59,26,'2013-07-19 02:40:00','来吧骚货','0'),(106,59,26,'2013-07-19 02:54:00','[/表情41]','0'),(107,43,20,'2013-07-19 12:20:00','我是傻逼','0'),(108,58,27,'2013-07-19 12:49:00','有什么不同？','0'),(109,57,27,'2013-07-19 12:50:00','还是不知道','0'),(110,43,20,'2013-07-19 13:41:00','测试啊～','1'),(111,43,20,'2013-07-19 16:41:00','阿骚大赛的请问','0'),(112,43,20,'2013-07-19 16:41:00','sadsad','0'),(113,43,20,'2013-07-20 05:37:00','萨克的哈傻小子','0'),(115,43,20,'2013-07-20 07:10:00','dsad','1'),(119,43,20,'2013-07-21 13:09:00','[/表情9][/表情14]','0'),(123,43,20,'2013-07-21 13:15:00','[/表情10]','0'),(124,78,31,'2013-07-21 13:24:00','啦啦啦我好骚啊！','0'),(125,76,30,'2013-07-21 14:10:00','有内容啦！','0'),(126,76,30,'2013-07-21 14:10:00','[/表情25]','0'),(128,81,33,'2013-07-21 16:03:00','宝贝一周年快乐啦！～我爱你哦[/表情13][/表情41][/表情49]','1');
 /*!40000 ALTER TABLE `Message` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Pcomment`
---
-
-DROP TABLE IF EXISTS `Pcomment`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Pcomment` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `photo_id` int(11) NOT NULL,
-  `user` int(11) NOT NULL,
-  `content` varchar(200) DEFAULT NULL,
-  `time` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `Pcomment_7c6c8bb1` (`photo_id`),
-  CONSTRAINT `photo_id_refs_id_1fd64ce7` FOREIGN KEY (`photo_id`) REFERENCES `Photo` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Pcomment`
---
-
-LOCK TABLES `Pcomment` WRITE;
-/*!40000 ALTER TABLE `Pcomment` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Pcomment` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -251,14 +224,14 @@ DROP TABLE IF EXISTS `Photo`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Photo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `album_id` int(11) NOT NULL,
+  `album_id` int(11) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
-  `desc` varchar(100) DEFAULT NULL,
-  `time` datetime NOT NULL,
+  `descri` varchar(100) DEFAULT NULL,
+  `time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `Photo_1293c648` (`album_id`),
-  CONSTRAINT `album_id_refs_id_61104582` FOREIGN KEY (`album_id`) REFERENCES `Album` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  KEY `album_id` (`album_id`),
+  CONSTRAINT `Photo_ibfk_1` FOREIGN KEY (`album_id`) REFERENCES `Album` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -267,7 +240,7 @@ CREATE TABLE `Photo` (
 
 LOCK TABLES `Photo` WRITE;
 /*!40000 ALTER TABLE `Photo` DISABLE KEYS */;
-INSERT INTO `Photo` VALUES (1,4,'6b9nkQm2ZZ8uESzy.jpg','','2013-06-02 04:34:19'),(2,4,'HxrBriHWSphTF8cl.jpg','','2013-06-02 10:26:15'),(3,1,'neawCwsIwwybD3E7.jpg','','2013-06-02 11:34:53'),(4,1,'d9dV2hjVpVTTaNcL.jpg','','2013-06-02 11:35:18'),(5,5,'iFaTqpt8vCm2zLTW.jpg','','2013-07-13 14:15:18');
+INSERT INTO `Photo` VALUES (18,21,'KhggVc80OyF8zTLi.jpg','','2013-07-20 16:18:16'),(19,21,'tNUPvKdyDnpbaiEV.jpg','','2013-07-20 16:22:01'),(20,21,'BmYjPXUmu6jJcEsb.jpg','','2013-07-20 16:24:00'),(21,21,'hwrirctPSJBvBYQG.jpg','','2013-07-20 16:25:48'),(22,21,'y3pexDzvzsRXdiFv.jpg','','2013-07-20 16:29:00'),(23,21,'G6yEFjhVWqPKlHNH.jpg','','2013-07-20 16:31:55'),(24,21,'TqeiZCW72qMQKjj6.jpg','','2013-07-20 16:32:03'),(26,21,'OsDagw4C62D3DCkW.jpg','','2013-07-20 16:46:52'),(27,21,'J5xKibaG4Bc9UwgQ.jpg','','2013-07-20 16:54:17'),(32,21,'I3KpjUW75dKBjsBl.jpg','','2013-07-21 07:19:48'),(35,21,'1kY5OcRby6HE6Ok2.jpg','','2013-07-21 08:30:29'),(36,21,'pbgn2AtP4PXJP0U4.jpg','','2013-07-21 08:30:29'),(37,21,'31JQkAIjWIjsc5kW.jpg','','2013-07-21 08:30:41'),(38,30,'bKhQOY5oFIGAFlj4.jpg','','2013-07-21 15:45:48');
 /*!40000 ALTER TABLE `Photo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -283,7 +256,7 @@ CREATE TABLE `Relation` (
   `from_uid` int(11) NOT NULL,
   `to_lid` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -292,7 +265,7 @@ CREATE TABLE `Relation` (
 
 LOCK TABLES `Relation` WRITE;
 /*!40000 ALTER TABLE `Relation` DISABLE KEYS */;
-INSERT INTO `Relation` VALUES (2,1,3),(3,1,4),(7,7,1),(8,7,2),(9,7,4),(10,7,5),(11,10,1),(12,10,2),(13,10,3),(14,9,3),(15,9,4),(16,9,2),(17,9,1),(18,1,5),(19,11,1),(20,19,10),(21,26,11),(23,24,12),(24,28,11),(25,28,12),(26,24,13),(27,30,11),(28,30,12),(29,30,13),(30,24,14),(31,37,16),(32,45,20),(33,46,20),(35,47,20),(36,47,21),(37,43,22),(38,50,20),(39,50,21),(40,50,22),(41,43,21),(44,43,23);
+INSERT INTO `Relation` VALUES (2,1,3),(3,1,4),(7,7,1),(8,7,2),(9,7,4),(10,7,5),(11,10,1),(12,10,2),(13,10,3),(14,9,3),(15,9,4),(16,9,2),(17,9,1),(18,1,5),(19,11,1),(20,19,10),(21,26,11),(23,24,12),(24,28,11),(25,28,12),(26,24,13),(27,30,11),(28,30,12),(29,30,13),(30,24,14),(31,37,16),(32,45,20),(33,46,20),(35,47,20),(36,47,21),(37,43,22),(38,50,20),(39,50,21),(40,50,22),(41,43,21),(44,43,23),(45,44,21),(46,44,22),(47,44,23),(48,44,24),(49,46,22),(50,46,23),(51,46,24),(52,55,20),(53,55,21),(54,55,22),(55,55,23),(56,55,24),(57,59,25),(58,59,20),(59,59,21),(60,59,27),(61,59,24),(62,59,23),(63,59,22),(64,57,20),(65,57,23),(66,57,24),(67,63,20),(68,65,21),(70,72,20),(71,75,20),(72,76,20),(73,72,21),(74,72,22),(75,72,23),(76,72,24),(77,72,25),(78,64,20),(79,82,20),(80,82,21),(81,82,23),(82,82,25),(83,43,33),(84,44,33),(85,67,33);
 /*!40000 ALTER TABLE `Relation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -309,7 +282,7 @@ CREATE TABLE `RequestList` (
   `to_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `from_id` (`from_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -318,6 +291,7 @@ CREATE TABLE `RequestList` (
 
 LOCK TABLES `RequestList` WRITE;
 /*!40000 ALTER TABLE `RequestList` DISABLE KEYS */;
+INSERT INTO `RequestList` VALUES (8,61,62),(65,69,61);
 /*!40000 ALTER TABLE `RequestList` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -340,7 +314,7 @@ CREATE TABLE `User` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -349,7 +323,7 @@ CREATE TABLE `User` (
 
 LOCK TABLES `User` WRITE;
 /*!40000 ALTER TABLE `User` DISABLE KEYS */;
-INSERT INTO `User` VALUES (43,'dl','356a192b7913b04c54574d18c28d46e6395428ab','swd','m',11,44,'43'),(44,'jun','356a192b7913b04c54574d18c28d46e6395428ab','assadq','f',12,43,'44'),(45,'sao','356a192b7913b04c54574d18c28d46e6395428ab','324','m',12,46,'default'),(46,'pin','356a192b7913b04c54574d18c28d46e6395428ab','sdsdf','f',213,45,'46'),(47,'dd','356a192b7913b04c54574d18c28d46e6395428ab','sasdasd','m',11,49,'47'),(49,'qq','356a192b7913b04c54574d18c28d46e6395428ab','asdasqz','f',13,47,'default'),(50,'gan','356a192b7913b04c54574d18c28d46e6395428ab','asdasdvx','f',112,51,'default'),(51,'草','356a192b7913b04c54574d18c28d46e6395428ab','1298sd','f',11,50,'default'),(52,'suck','356a192b7913b04c54574d18c28d46e6395428ab','qwouzsxna,sdq','f',11,NULL,'default');
+INSERT INTO `User` VALUES (43,'dl','356a192b7913b04c54574d18c28d46e6395428ab','swd','m',11,44,'43'),(44,'jun','356a192b7913b04c54574d18c28d46e6395428ab','assadq','f',12,43,'44'),(45,'sao','356a192b7913b04c54574d18c28d46e6395428ab','324','m',12,46,'default'),(46,'pin','356a192b7913b04c54574d18c28d46e6395428ab','sdsdf','f',213,45,'46'),(47,'dd','356a192b7913b04c54574d18c28d46e6395428ab','sasdasd','m',11,49,'47'),(49,'qq','356a192b7913b04c54574d18c28d46e6395428ab','asdasqz','f',13,47,'default'),(50,'gan','356a192b7913b04c54574d18c28d46e6395428ab','asdasdvx','f',112,51,'default'),(51,'草','356a192b7913b04c54574d18c28d46e6395428ab','1298sd','f',11,50,'default'),(52,'suck','356a192b7913b04c54574d18c28d46e6395428ab','qwouzsxna,sdq','f',11,63,'default'),(53,'ll','356a192b7913b04c54574d18c28d46e6395428ab','sdwqoeuoqwzxc','m',1,54,'default'),(54,'ddd','356a192b7913b04c54574d18c28d46e6395428ab','xznmasd','f',12,53,'default'),(55,'ddddd','356a192b7913b04c54574d18c28d46e6395428ab','asoizxuozxc','m',12,56,'default'),(56,'wei','356a192b7913b04c54574d18c28d46e6395428ab','qow7897d','f',11,55,'default'),(57,'msy','356a192b7913b04c54574d18c28d46e6395428ab','173586618','f',18,58,'57'),(58,'msy_test','356a192b7913b04c54574d18c28d46e6395428ab','111','m',18,57,'default'),(59,'骚货','356a192b7913b04c54574d18c28d46e6395428ab','adasdasdzxcqwe','m',12,60,'default'),(60,'阿骚','356a192b7913b04c54574d18c28d46e6395428ab','0870xzc','m',12,59,'default'),(61,'user1','9e6a55b6b4563e652a23be9d623ca5055c356940','1345','m',18,NULL,'default'),(62,'user2','356a192b7913b04c54574d18c28d46e6395428ab','11','f',18,NULL,'default'),(63,'骚隐','356a192b7913b04c54574d18c28d46e6395428ab','79asdaszxc','f',11,52,'default'),(64,'gil','356a192b7913b04c54574d18c28d46e6395428ab','zzz','m',1,NULL,'64'),(65,'当','356a192b7913b04c54574d18c28d46e6395428ab','sadasdasdxqw','m',11,66,'default'),(66,'哈','356a192b7913b04c54574d18c28d46e6395428ab','899xz','m',11,65,'default'),(67,'测试','356a192b7913b04c54574d18c28d46e6395428ab','987zxzxc','f',11,68,'default'),(68,'哈哈哈','356a192b7913b04c54574d18c28d46e6395428ab','asiizx12','m',11,67,'default'),(69,'example','356a192b7913b04c54574d18c28d46e6395428ab','123','f',18,NULL,'69'),(71,'example_f','356a192b7913b04c54574d18c28d46e6395428ab','1112','m',18,NULL,'default'),(72,'法克','356a192b7913b04c54574d18c28d46e6395428ab','2ezca','m',11,79,'default'),(74,'gil1','356a192b7913b04c54574d18c28d46e6395428ab','adj','m',1,NULL,'74'),(75,'lala','356a192b7913b04c54574d18c28d46e6395428ab','lala','m',1,76,'75'),(76,'haha','356a192b7913b04c54574d18c28d46e6395428ab','haha','f',1,75,'76'),(77,'冯建琳','356a192b7913b04c54574d18c28d46e6395428ab','192scasdaz','m',11,78,'default'),(78,'涛哥','356a192b7913b04c54574d18c28d46e6395428ab','ocxzcasd','m',11,77,'default'),(79,'王木木','356a192b7913b04c54574d18c28d46e6395428ab','0987zxcasdq','m',11,72,'default'),(80,'waiterhu','5a5c3666d06adb693d3c01080e0b2d09e9a710fa','275231960@qq.com','m',21,NULL,'80'),(81,'乐','a0c3cd9e41d288d91a6651cfc2b768df5e86b175','dengleshag@gmail.com','m',21,82,'81'),(82,'君','a0c3cd9e41d288d91a6651cfc2b768df5e86b175','79952642@qq.com','f',22,81,'82');
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -376,7 +350,7 @@ CREATE TABLE `django_content_type` (
 
 LOCK TABLES `django_content_type` WRITE;
 /*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
-INSERT INTO `django_content_type` VALUES (1,'content type','contenttypes','contenttype'),(2,'session','sessions','session'),(3,'lovers','users','lovers'),(4,'request list','users','requestlist'),(5,'user','users','user'),(6,'comment','message','comment'),(7,'message','message','message'),(8,'magicword','magicword','magicword'),(9,'album','album','album'),(10,'photo','album','photo'),(11,'comment','album','comment'),(12,'relation','users','relation');
+INSERT INTO `django_content_type` VALUES (1,'content type','contenttypes','contenttype'),(2,'session','sessions','session'),(3,'lovers','users','lovers'),(4,'request list','users','requestlist'),(5,'user','users','user'),(6,'comment','message','comment'),(7,'message','message','message'),(8,'magicword','magicword','magicword'),(9,'album','album','album'),(10,'photo','album','photo'),(12,'relation','users','relation');
 /*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -402,7 +376,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('6d8816c1fa707017fdf91e9c7c1cc97b','ZWMyNTM3NjY4ZmU4Mjk2ZmM3MDllYTUyZTkyMTVlN2RhNDk0YzFiMjqAAn1xAShVA2xpZIoBAVUD\nYWlkVQEzVQR1c2VyWAIAAABkbHECVQxyZXF1ZXN0X2xpc3RdVQN1aWRxA1UBMXUu\n','2013-06-26 15:24:13'),('7957366bde687246040551821d549796','YzdiZWY0NDE4YWJhZDAzODMxMzIxNGEzOTFkYmI4Y2NmYmQ2ODgwNTqAAn1xAShVA2xpZHECigEU\nVQR1c2VycQNYAgAAAGRscQRVDHJlcXVlc3RfbGlzdHEFXVUDdWlkcQZVAjQzdS4=\n','2013-07-31 11:45:23'),('cf67f57e97735d422195ef4cb18d9d95','MTc3N2YzOWM0N2Y3OTI5NzUzMjUwNDBlZTJlYmQ2OGIzZDQwOThiOTqAAn1xAShVA2xpZHECigEB\nVQR1c2VycQNYAgAAAGRscQRVDHJlcXVlc3RfbGlzdHEFXVUDdWlkcQZVATF1Lg==\n','2013-06-16 13:03:08'),('d7084404640b4bc74c47592d47717803','NzgwMWUzMWNkMTUxZjZkNGUxODI1YmViM2MwNzBlYTFmYjRjNzNmMjqAAn1xAShVA2xpZHECigEL\nVQR1c2VycQNYAgAAAGRscQRVDHJlcXVlc3RfbGlzdHEFXVUDdWlkcQZVAjI0dS4=\n','2013-07-27 12:04:49'),('e6c8dbec17a85d908025cda02d153982','MGFiYmZmNmVhYjhkNDM4MGVjNzg2ZGE3MmM1MGM5NGE3N2QyYzQ4YjqAAn1xAShVA2xpZIoBFFUD\nYWlkVQE1VQR1c2VyWAIAAABkbFUMcmVxdWVzdF9saXN0XXUu\n','2013-07-31 10:02:43'),('efcbb9c36ce7ba38f7386022d6207813','Njk1ZmE0ODI5YTIxMDMxZjI1MmJkOGJkYzE1MWUwMTdhZWUyZDQ2NTqAAn1xAShVA2xpZIoBC1UE\ndXNlclgCAAAAZGxVDHJlcXVlc3RfbGlzdF11Lg==\n','2013-07-27 12:02:29'),('fea8ad596c708dc8d2fcc8c3f26bab6a','YzdiZWY0NDE4YWJhZDAzODMxMzIxNGEzOTFkYmI4Y2NmYmQ2ODgwNTqAAn1xAShVA2xpZHECigEU\nVQR1c2VycQNYAgAAAGRscQRVDHJlcXVlc3RfbGlzdHEFXVUDdWlkcQZVAjQzdS4=\n','2013-07-31 11:45:25');
+INSERT INTO `django_session` VALUES ('0249d0e4ac3e227dcd5f767349bd8b3b','NGIxNDM4NTIxZTBkMmZlOTcyYjY4NjNkODg4NTdhODE1ZTIwYmZlNDqAAn1xAShVA2xpZHECigEh\nVQR1c2VycQNYAwAAAOWQm1UMcmVxdWVzdF9saXN0cQRdVQN1aWRxBVUCODJ1Lg==\n','2013-08-04 16:05:34'),('6d8816c1fa707017fdf91e9c7c1cc97b','ZWMyNTM3NjY4ZmU4Mjk2ZmM3MDllYTUyZTkyMTVlN2RhNDk0YzFiMjqAAn1xAShVA2xpZIoBAVUD\nYWlkVQEzVQR1c2VyWAIAAABkbHECVQxyZXF1ZXN0X2xpc3RdVQN1aWRxA1UBMXUu\n','2013-06-26 15:24:13'),('7957366bde687246040551821d549796','ZDBiZGNiYjg3ZTg3OGY3ZTU1ODA4ZjNjMjE5MjY1ZjA3ODY3N2Y5MjqAAn1xAShVA2xpZIoBIVUE\ndXNlclgDAAAA5LmQVQxyZXF1ZXN0X2xpc3RddS4=\n','2013-08-04 16:25:07'),('88c98f4b9406b557e33fe893d0f3c9d6','YzdiZWY0NDE4YWJhZDAzODMxMzIxNGEzOTFkYmI4Y2NmYmQ2ODgwNTqAAn1xAShVA2xpZHECigEU\nVQR1c2VycQNYAgAAAGRscQRVDHJlcXVlc3RfbGlzdHEFXVUDdWlkcQZVAjQzdS4=\n','2013-08-03 02:36:27'),('b65925a4f8d86b49aa06a0cb3cc242fe','YzdiZWY0NDE4YWJhZDAzODMxMzIxNGEzOTFkYmI4Y2NmYmQ2ODgwNTqAAn1xAShVA2xpZHECigEU\nVQR1c2VycQNYAgAAAGRscQRVDHJlcXVlc3RfbGlzdHEFXVUDdWlkcQZVAjQzdS4=\n','2013-07-31 12:35:04'),('ba92936857264490b05d62526634e55d','ZjA5ZDViNjM5ZmVkZjcxZGNmZDMxNWNmNmI5Y2ZkNzE4NzZiYjBmOTqAAn1xAShVA2xpZIoBG1UE\ndXNlclgDAAAAbXN5cQJVDHJlcXVlc3RfbGlzdF1VA3VpZHEDVQI1N3Uu\n','2013-08-04 15:10:38'),('cbda8db2d97ecf32eadfae27d3a2ee05','Y2M3OWViNTNhZDEwOTU2ZTg1YTllNDZlNGJjNDJlN2Q3YTE4YTViZTqAAn1xAShVA2xpZIoBFFUE\ndXNlclgCAAAAZGxxAlUMcmVxdWVzdF9saXN0XVUDdWlkcQNVAjQzdS4=\n','2013-08-04 14:27:06'),('cf67f57e97735d422195ef4cb18d9d95','MTc3N2YzOWM0N2Y3OTI5NzUzMjUwNDBlZTJlYmQ2OGIzZDQwOThiOTqAAn1xAShVA2xpZHECigEB\nVQR1c2VycQNYAgAAAGRscQRVDHJlcXVlc3RfbGlzdHEFXVUDdWlkcQZVATF1Lg==\n','2013-06-16 13:03:08'),('d7084404640b4bc74c47592d47717803','NzgwMWUzMWNkMTUxZjZkNGUxODI1YmViM2MwNzBlYTFmYjRjNzNmMjqAAn1xAShVA2xpZHECigEL\nVQR1c2VycQNYAgAAAGRscQRVDHJlcXVlc3RfbGlzdHEFXVUDdWlkcQZVAjI0dS4=\n','2013-07-27 12:04:49'),('e6c8dbec17a85d908025cda02d153982','MjBkZDNkM2E0ZTcwNDhlM2E5NWM5N2M5NzViMjdkNzFiNDQ1NzlmYzqAAn1xAShVA2xpZIoBGlUD\nYWlkVQE2VQR1c2VyWAYAAADpqprotKdVDHJlcXVlc3RfbGlzdF1xAooBPFgGAAAA6Zi/6aqahnED\nYVUDdWlkVQI1OXUu\n','2013-08-01 15:51:15'),('efcbb9c36ce7ba38f7386022d6207813','Njk1ZmE0ODI5YTIxMDMxZjI1MmJkOGJkYzE1MWUwMTdhZWUyZDQ2NTqAAn1xAShVA2xpZIoBC1UE\ndXNlclgCAAAAZGxVDHJlcXVlc3RfbGlzdF11Lg==\n','2013-07-27 12:02:29'),('fea8ad596c708dc8d2fcc8c3f26bab6a','Y2M3OWViNTNhZDEwOTU2ZTg1YTllNDZlNGJjNDJlN2Q3YTE4YTViZTqAAn1xAShVA2xpZIoBFFUE\ndXNlclgCAAAAZGxxAlUMcmVxdWVzdF9saXN0XVUDdWlkcQNVAjQzdS4=\n','2013-08-04 15:12:26');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -415,4 +389,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-07-17 19:51:14
+-- Dump completed on 2013-07-22  0:32:18
